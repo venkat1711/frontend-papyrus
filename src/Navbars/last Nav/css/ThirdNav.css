@@ -1,0 +1,33 @@
+.EveT_l_Nav_TN{
+    border:1px solid blue;
+    width:100%;
+    
+}
+.EveT_l_link_TN {
+    color: #dc3545;
+}
+/* #EveT_l_Nav_TN a:hover {
+
+} */
+.EveT_l_link_TN {
+  /* margin-right: 15px; */
+  /* margin: 0 auto; */
+  /* width: fit-content; */
+  border: 1px solid red;
+  /* justify-self: center; */
+}
+.EveT_l_item_TN{
+    height:40px;
+    border:1px solid black;
+    text-align: center;
+    justify-content: center;
+    margin:0 auto;
+    min-width:16.5%;
+}
+.EveT_l_link_TN:hover {
+  border-bottom: 3px solid #dc3545;
+  color: #dc3545;
+}
+.EveT_l_dropdown:hover .EveT_l_dropdown-menu a:hover {
+  text-decoration: none;
+}

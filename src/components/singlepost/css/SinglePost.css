@@ -1,0 +1,12 @@
+@media only screen and (max-width:768px){
+    .EveT_l_inputgroup {
+        width: 100% !important;
+    }
+}
+
+@media only screen and (max-width:320px){
+    .EveT_l_inputgroup {
+        width: 100% !important;
+    }
+}
+

@@ -1,0 +1,56 @@
+
+.navbar-light .navbar-nav .nav-link {
+  color:white!important;
+}
+#EveT_l_Brandname {
+ color:white;
+}
+
+
+/* .EveT_l_Navlink {
+  color: white;
+} */
+
+/* .EveT_l_Navlink:hover {
+  color: white;
+  text-decoration: none;
+} */
+
+ /* .EveT_l_dropdown {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  padding-bottom: 8px;
+ 
+}  */
+
+/* .EveT_l_dropdown-menu {
+  position: absolute;
+  display: none;
+  text-align:left; 
+ 
+  background-color: #f9f9f9;
+ 
+ min-width:100%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  cursor: pointer;
+} */
+/* 
+.EveT_l_dropdown:hover .EveT_l_dropdown-menu {
+
+  display:flex;
+  flex-direction: column;
+  text-decoration:none;
+
+} */
+
+@media only screen and (min-width: 992px) {
+  #EveT_l_Brandname {
+    display: none;
+  }
+  /* #EveT_l_sideimg {
+    padding-top: 0;
+  } */
+}

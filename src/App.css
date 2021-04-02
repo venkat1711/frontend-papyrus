@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+:root {
+  --main_color: red;
+  /* --backGround_Color: rgb(45, 99, 45); */
+}
+
+.EVET_l_Link {
+  color: red;
+  text-decoration: none;
+}
+
+.EVET_l_btn {
+  color: red;
+  cursor: pointer;
+}
+.EVET_l_btn:hover {
+  color: blue;
+  cursor: pointer;
+}
+.EVET_l_Link:hover {
+  color: blue;
+}
+
+#heading-wrapper {
+  display: inline-block;
+  width: 180px;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
+
+.gridBox {
+  display: grid;
+  grid-template-columns: 32% 32% 32%;
+  justify-content: center;
+  grid-column-gap: 20px;
+  width: 100%;
+}
+
+@media screen and (max-width: 986px) {
+  .gridBox {
+    grid-template-columns: 45% 45%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .gridBox {
+    grid-template-columns: 100%;
+  }
+}
+

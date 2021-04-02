@@ -1,0 +1,20 @@
+.EveT_l_login_FN{
+    margin-right:20px;
+    float:right;
+    color:white;
+    font-weight: 600;
+    border:1px solid white;
+    border-radius:10px;
+    width:50px;
+    text-align: center;
+    padding:3px;
+}
+.EveT_l_login_FN:hover{
+    color:white;
+    text-decoration: none;
+    background-color: #dc3545;
+}
+.EveT_l_Navbar_FN{
+    padding:5px;
+    color:white !important;
+}

@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.EveT_l_RicercaForm {
+  width: 90%;
+}
+
+@media only screen and (max-width: 576px) {
+  .EveT_l_RicercaMain {
+    padding: 25px !important;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .EveT_l_RicercaForm {
+    padding: 25px !important;
+  }
+}
