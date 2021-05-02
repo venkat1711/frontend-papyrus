@@ -39,7 +39,7 @@ const Materials = ({ handleChange, material }) => {
                 value={material}
                 required
             >
-                <option>Please select a materials</option>
+                <option>Please select</option>
                 {values.Materials &&
                     values.Materials.map((c, i) => (
                         <option key={i} value={c.name}>

@@ -40,7 +40,7 @@ const Bookform = ({ handleChange, bookform }) => {
                 value={bookform}
                 required
             >
-                <option>Please select a Bookform</option>
+                <option>Please select</option>
                 {values.Bookform &&
                     values.Bookform.map((c, i) => (
                         <option key={i} value={c.name}>

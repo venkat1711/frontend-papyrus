@@ -11,7 +11,7 @@ const FirstNav = ({ history }) => {
 
         <Navbar style={{ background: 'brown', fontWeight: 'bold' }}>
             <Container fluid>
-                <Navbar.Brand className="EveT_l_Navbar_FN" href="/">Papyri Progetto</Navbar.Brand>
+                <Navbar.Brand className="EveT_l_Navbar_FN" href="/">LitPapArs Progetto</Navbar.Brand>
 
                 {isAuthenticated() && user.role === 0 ? (
                     <Link to='/user/dashboard' style={{ color: '#fff' }}>Dashboard</Link>

@@ -40,7 +40,7 @@ const Inventory = ({ handleChange, inventory }) => {
                 value={inventory}
                 required
             >
-                <option>Please select a Inventory</option>
+                <option>Please select</option>
                 {values.Inventory &&
                     values.Inventory.map((c, i) => (
                         <option key={i} value={c.name}>

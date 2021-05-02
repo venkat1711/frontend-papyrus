@@ -89,7 +89,7 @@ const RicercaForm = ({ history }) => {
 
                             <FormGroup as={Row}>
                                 <Form.Label htmlFor="input1" column xs={4} sm={4}>
-                                    Origin:
+                                    Find Place:
                                 </Form.Label>
                                 <Col xs={7} sm={7} >
                                     <ProvenanceInputs handleChange={handleChange} />
@@ -121,7 +121,7 @@ const RicercaForm = ({ history }) => {
 
                             <FormGroup as={Row}>
                                 <Form.Label htmlFor="input1" column xs={4} sm={4}>
-                                    Genere:
+                                    Genre:
                         </Form.Label>
                                 <Col xs={7} sm={7} >
                                     <GenreInputs handleChange={handleChange} />
@@ -289,8 +289,8 @@ const RicercaForm = ({ history }) => {
                             </FormGroup>
 
                             <div className=" m-5">
-                                <button type='submit' className="btn btn-outline-primary  m-2 " >search</button>
-                                <Button type='reset' className="btn btn-danger m-2">Reset</Button>
+                                <button type='submit' className="btn btn-danger m-2 " >search</button>
+                                <Button type='reset' className="btn btn-primary">Reset</Button>
                             </div>
                         </Form>
                     </Col>

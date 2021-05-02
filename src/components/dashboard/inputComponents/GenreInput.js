@@ -39,7 +39,7 @@ const GenreInput = ({ handleChange, genre }) => {
                 value={genre}
                 required
             >
-                <option>Please select a Genre</option>
+                <option>Please select</option>
                 {values.Genre &&
                     values.Genre.map((c, i) => (
                         <option key={i} value={c.name}>

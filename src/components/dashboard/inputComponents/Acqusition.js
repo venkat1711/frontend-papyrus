@@ -40,7 +40,7 @@ const Acqusition = ({ handleChange, acquisition }) => {
                 value={acquisition}
                 required
             >
-                <option>Please select a Acquisition</option>
+                <option>Please select </option>
                 {values.Acqusition &&
                     values.Acqusition.map((c, i) => (
                         <option key={i} value={c.name}>

@@ -40,7 +40,7 @@ const Provenance = ({ handleChange, provenance }) => {
                 onChange={handleChange}
                 required
             >
-                <option>Please select a provenienza</option>
+                <option>Please select</option>
                 {values.Provenance &&
                     values.Provenance.map((c, i) => (
                         <option key={i} value={c.name}>
