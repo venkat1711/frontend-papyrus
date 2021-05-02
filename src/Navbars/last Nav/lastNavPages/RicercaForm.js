@@ -51,7 +51,7 @@ const RicercaForm = ({ history }) => {
     return (
         <Fragment>
             <div className="EveT_l_RicercaMain px-2">
-                <h2 className="text-center">Leuven Database of Ancient Books</h2>
+                <h2 className="text-center">Togliere la scritta Leuven Database of Ancient Books.</h2>
                 <Row>
                     <Col sm={12} xs={12} md={6} className="EveT_l_RicercaForm  mt-2 mx-auto "  >
                         <Form onSubmit={formSubmit}>
@@ -182,7 +182,7 @@ const RicercaForm = ({ history }) => {
 
                             <FormGroup as={Row}>
                                 <Form.Label htmlFor="input1" column xs={4} sm={4}>
-                                    BookForm:
+                                    Bookform:
                                 </Form.Label>
                                 <Col xs={7} sm={7} >
                                     <BookformInputs handleChange={handleChange} />
