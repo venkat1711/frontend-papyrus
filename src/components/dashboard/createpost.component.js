@@ -81,7 +81,7 @@ const CreatePost = () => {
     return (
         <Fragment>
             <div className="mx-auto EveT_l_RicercaFormMain my-2">
-                <h2>Togliere la scritta Leuven Database of Ancient Books.</h2>
+                <h2>Database of Ancient Books.</h2>
                 <Row>
                     <Col sm={12} xs={12} md={12} className="EveT_l_RicercaForm"   >
                         <Form onSubmit={formSubmit}>
