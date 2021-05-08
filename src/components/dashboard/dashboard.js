@@ -75,7 +75,7 @@ const Dashboard = (props) => {
                       <div onClick={() => props.history.push({
                         pathname: '/singlepost',
                         state: { detail: c }
-                      })} className="btn btn-outline-primary mt-2">Vedere qui</div>
+                      })} className="btn btn-outline-primary mt-2">Aperto</div>
                       <div onClick={() => props.history.push({
                         pathname: "/updatepost",
                         state: { detail: c._id }

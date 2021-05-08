@@ -7,6 +7,7 @@ import Modal, {closeStyle} from 'simple-react-modal';
 import {useState} from 'react';
 import { API,IMAGE_URL } from '../../config';
 import { isAuthenticated } from '../../api/auth';
+import PageEditor from './PageEditor';
 
 export default class HomePage extends Component {
     constructor(){
@@ -38,14 +39,17 @@ export default class HomePage extends Component {
                         <img className="d-block w-100" src={IMAGE_URL} alt='' width="30%" height="95%"/>
                         <div>
                         <button  type="button" class="btn btn-primary" 
-                        style={{ display: this.getRole()==1 ? "block" : "none",cursor: "pointer" ,float:"right",marginTop:"1px"}} onClick={this.show.bind(this)}>
+                        style={{ display: this.getRole()==1 ? "block" : "none",cursor: "pointer" ,
+                        float:"right",marginTop:"1px"}} onClick={this.show.bind(this)}>
           Change Image</button>
       <Modal show={this.state.show} onClose={this.close} transitionSpeed={1000}>
-  <div><FileUploadPage/></div>
+ 
+  <div >
+ <PageEditor  ></PageEditor></div>
 </Modal>
 
       </div>
- 
+    
 
                     </Col>
                     <Col sm={9} className="p-4">

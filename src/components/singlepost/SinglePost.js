@@ -98,20 +98,12 @@ const SinglePost = (props) => {
                       <td>{papyrusId === undefined ? '' : papyrusId}</td>
                     </tr>
                     <tr>
-                      <th>Inventory</th>
-                      <td>{inventory === undefined ? '' : inventory}</td>
+                      <th>Inventory,Number</th>
+                      <td>{inventory === undefined ? '' : inventory},{inventoryNumber === undefined ? '' : inventoryNumber}</td>
                     </tr>
-                    <tr>
-                      <th>Inventory Number</th>
-                      <td>{inventoryNumber === undefined ? '' : inventoryNumber}</td>
-                    </tr>
-                    <tr>
+                     <tr>
                       <th>Edition</th>
                       <td>{editionName === undefined ? '' : editionName}</td>
-                    </tr>
-                    <tr>
-                      <th>LDAB</th>
-                      <td>{LDAB === undefined ? '' : LDAB}</td>
                     </tr>
                     <tr>
                       <th>TM</th>
