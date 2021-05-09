@@ -32,7 +32,7 @@ export default class PageEditor extends Component {
   };
 
   clickhere () {
-   alert(this.contentRaw.blocks[0].text);
+ 
    //e.preventDefault();
    const { user, token } = isAuthenticated();
    var obj = {};
@@ -46,7 +46,7 @@ export default class PageEditor extends Component {
    
 obj.name="homepage";
 obj.content=this.contentRaw.blocks[0].text;
-   alert(JSON.stringify(obj));
+
    postContentToDB("homepage", token, obj).then((res) => {
        if (res.error) {
            toast.error(res.error);

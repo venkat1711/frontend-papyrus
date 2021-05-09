@@ -81,8 +81,7 @@ export default class HomePage extends Component {
       
     
     render() {
-       //const pagedata=this.apiCall();
-       //alert(pagedata);
+   
         return (
             <Fragment>
                 <Row >
