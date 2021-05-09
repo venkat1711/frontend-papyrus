@@ -171,6 +171,7 @@ export const registerSinglePost = (userId, token, post) => {
     });
 };
 
+
 // deleteProduct /registerpost/:registerpostId/:userId
 export const deleteRegisterPost = (registerpostId, userId, token) => {
   return fetch(`${API}/registerpost/${registerpostId}/${userId}`, {
