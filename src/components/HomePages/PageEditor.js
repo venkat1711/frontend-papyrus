@@ -24,13 +24,21 @@ export default class PageEditor extends Component {
   onChange (editorState) {
     this.setState({editorState});
     this.contentRaw = convertToRaw(editorState.getCurrentContent());
-
+ console.log(JSON.stringify(this.contentRaw.blocks));
   };
 
   setEditor (editor) {
     this.editor = editor;
   };
+convertHtml(){
+  var htmlText='';
+  for(var i=0;i<this.contentRaw.blocks.length;i++){
+htmlText+='<p className="w-75">'+this.contentRaw.blocks[i].text+'</p>'
 
+  }
+  console.log(htmlText)
+  return htmlText;
+}
   clickhere () {
  
    //e.preventDefault();
@@ -45,7 +53,7 @@ export default class PageEditor extends Component {
           console.log(res.error);
    
 obj.name="homepage";
-obj.content=this.contentRaw.blocks[0].text;
+obj.content= this.convertHtml();
 
    postContentToDB("homepage", token, obj).then((res) => {
        if (res.error) {

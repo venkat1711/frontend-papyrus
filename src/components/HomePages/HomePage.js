@@ -113,16 +113,8 @@ export default class HomePage extends Component {
                     </Col>
                     <Col sm={9} className="p-4">
                         <h3>PSIonline - PLAURonline - psi online PPadonline - PPRAGonline</h3>
-                        <p className="w-75">Attraverso questo sito è possibile consultare il catalogo informatico dei PSI – Papiri della Società Italiana e dei P. Laur. – Papiri della Biblioteca Medicea Laurenziana.
-                        ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
-                        condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque
-                        sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
-                        Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
-                        Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla
-                        mauris sit amet nibh. Donec sodales
-                     sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc</p>
-                        <p>
-        {this.state.pagecontent[0].content}</p>
+                                               
+        <div dangerouslySetInnerHTML={{ __html: this.state.pagecontent[0].content }} />
                     </Col>
                 </Row>
                 <Footer />
