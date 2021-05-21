@@ -1,7 +1,11 @@
-import React, { Component, Fragment,Function } from 'react';
-import { Editor } from "react-draft-wysiwyg";
-import { EditorState } from "draft-js";
+import React, { Component } from 'react';
+import {Editor, EditorState } from 'draft-js';
+//import {  } from 'react-draft-wysiwyg';
+import { convertToRaw,draftToHtml } from 'draft-js';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import { isAuthenticated } from '../../api/auth';
+import { postContentToDB, getPageContent } from '../../api/AllCategories/postcontent';
+import { toast } from 'react-toastify';
 
 
 
@@ -9,38 +13,81 @@ export default class PageEditor extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      editorState: EditorState.createEmpty(),
-    };
-  }
-
-  onEditorStateChange= (editorState) => {
-    this.setState({
-      editorState,
-    });
+    this.state = { editorState: EditorState.createEmpty() };
+    this.onChange = this.onChange.bind(this);
+    this.setEditor = this.setEditor.bind(this);
+    this.clickhere=this.clickhere.bind(this);
+    this.contentRaw=null;
+   // this.focusEditor = this.focusEditor.bind(this);
   };
 
-  handleEditorChange = (state) => {
-    //setEditorState(state);
-    this.editorState=state;
-    //alert(state.getCurrentContent());
-   //alert("text"+JSON.stringify(state));
+  onChange (editorState) {
+    this.setState({editorState});
+    this.contentRaw = convertToRaw(editorState.getCurrentContent());
+ console.log(JSON.stringify(this.contentRaw.blocks));
+  };
+
+  setEditor (editor) {
+    this.editor = editor;
+  };
+convertHtml(){
+  var htmlText='';
+  for(var i=0;i<this.contentRaw.blocks.length;i++){
+htmlText+='<p className="w-75">'+this.contentRaw.blocks[i].text+'</p>'
+
   }
+  console.log(htmlText)
+  return htmlText;
+}
+  clickhere () {
+ 
+   //e.preventDefault();
+   const { user, token } = isAuthenticated();
+   var obj = {};
+   getPageContent("homepage").then((res) => {
+    if (res.error) {
+      toast.error(`get pagecontent error`);
+    } else {
+       
+       obj=res.pagecontent[0];
+          console.log(res.error);
+   
+obj.name="homepage";
+obj.content= this.convertHtml();
+
+   postContentToDB("homepage", token, obj).then((res) => {
+       if (res.error) {
+           toast.error(res.error);
+           console.log(res.error);
+       } else {
+
+           toast.success(`post is create!!!`);
+           window.location.reload();
+       }
+   })
+       .catch((err) => console.log(err, 'error in create post'));
   
+} 
+})
+ .catch((err) => console.log(err, 'error in create post'));
+};
+
   render(){
     const {editorState} =this.state;
   return (
     <div className="App">
       <header className="App-header">
-        Rich Text Editor Example
+        Add your content here for page
       </header>
       <Editor
-        editorState={editorState}
-        onEditorStateChange={this.handleEditorChange}
-        wrapperClassName="wrapper-class"
-        editorClassName="editor-class"
-        toolbarClassName="toolbar-class"
-      />
+            ref={this.setEditor}
+            editorState={this.state.editorState}
+            onChange={this.onChange}
+            wrapperClassName="wrapper-class"
+  editorClassName="editor-class"
+  toolbarClassName="toolbar-class"
+          />
+          <button name="submit" onClick={this.clickhere}>Submit</button>
     </div>
   )
 }

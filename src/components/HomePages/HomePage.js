@@ -8,19 +8,68 @@ import {useState} from 'react';
 import { API,IMAGE_URL } from '../../config';
 import { isAuthenticated } from '../../api/auth';
 import PageEditor from './PageEditor';
+import { getPageContent } from '../../api/AllCategories/postcontent';
+import { toast } from 'react-toastify';
 
 export default class HomePage extends Component {
     constructor(){
         super()
-        this.state = {}
+        this.state = {"pagecontent":[{"content":"eee"}],"show":false,"show1":false}
+       // this.pagedata={"pagecontent":[{"content":"eee"}]};
+        
       }
-     
+      componentDidMount(){
+        this.apiCall();
+      }
+    
       show(){
         this.setState({show: true})
+      }
+      show1(){
+        this.setState({show1: true})
+      }
+
+      apiCall(){
+        getPageContent("homepage").then((res) => {
+          if (res.error) {
+            toast.error(`get pagecontent error`);
+          } else {
+             
+              this.pagedata=res;
+              this.setState({
+               pagecontent:res.pagecontent
+               });
+                console.log(res.error);
+          }
+      })
+          .catch((err) => console.log(err, 'error in create post'));
+        // fetch(
+        //   `${API}/pagecontent/homepage`,
+        //   {
+        //     method: 'GET'                 
+                    
+        //   }
+        // )
+        //   .then((response) => response.json())
+        //   .then((result) => {
+        //             console.log('Success:', result);
+        //             this.pagedata=result;
+        //             this.setState({
+        //               pagecontent:result.pagecontent
+        //           });
+        //        // window.location.reload();
+        //        return result;
+        //   })
+        //   .catch((error) => {
+        //     console.error('Error:', error);
+        //   });
       }
      
       close(){
         this.setState({show: false})
+      }
+      close1(){
+        this.setState({show1: false})
       }
 
       getRole(){
@@ -32,6 +81,7 @@ export default class HomePage extends Component {
       
     
     render() {
+   
         return (
             <Fragment>
                 <Row >
@@ -42,10 +92,19 @@ export default class HomePage extends Component {
                         style={{ display: this.getRole()==1 ? "block" : "none",cursor: "pointer" ,
                         float:"right",marginTop:"1px"}} onClick={this.show.bind(this)}>
           Change Image</button>
+          <button  type="button" class="btn btn-primary" 
+                        style={{ display: this.getRole()==1 ? "block" : "none",cursor: "pointer" ,
+                        float:"right",marginTop:"1px"}} onClick={this.show1.bind(this)}>
+          Change content</button>
       <Modal show={this.state.show} onClose={this.close} transitionSpeed={1000}>
  
   <div >
- <PageEditor  ></PageEditor></div>
+ <FileUploadPage  ></FileUploadPage></div>
+</Modal>
+<Modal show={this.state.show1} onClose={this.close1.bind(this)} transitionSpeed={1000}>
+ 
+ <div >
+<PageEditor  ></PageEditor></div>
 </Modal>
 
       </div>
@@ -54,16 +113,8 @@ export default class HomePage extends Component {
                     </Col>
                     <Col sm={9} className="p-4">
                         <h3>PSIonline - PLAURonline - psi online PPadonline - PPRAGonline</h3>
-                        <p className="w-75">Attraverso questo sito è possibile consultare il catalogo informatico dei PSI – Papiri della Società Italiana e dei P. Laur. – Papiri della Biblioteca Medicea Laurenziana.
-                        ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
-                        condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque
-                        sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
-                        Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
-                        Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla
-                        mauris sit amet nibh. Donec sodales
-                     sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc</p>
-                        <p>
-                            Il progetto è il frutto di accordi di cooperazione stipulati tra diverse istituzioni italiane e straniere: le Università di Bologna, Cassino, Messina, Napoli e Padova, l’Accademia Fiorentina di Papirologia, l’Istituto Papirologico Vitelli – Università di Firenze, la Biblioteca Medicea Laurenziana, il Museo Egizio del Cairo. La sua realizzazione è attualmente curata dal Centro Editoriale e dal Laboratorio di Ricerche Storiche e Archeologiche dell’Antichità (Dipartimento di Scienze Umane, Sociali e della Salute) dell’Università di Cassino.</p>
+                                               
+        <div dangerouslySetInnerHTML={{ __html: this.state.pagecontent[0].content }} />
                     </Col>
                 </Row>
                 <Footer />
