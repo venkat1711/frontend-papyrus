@@ -51,7 +51,7 @@ const RicercaForm = ({ history }) => {
     return (
         <Fragment>
             <div className="EveT_l_RicercaMain px-2">
-                <h2 className="text-center">Database of Ancient Books.</h2>
+                {/* <h2 className="text-center">Database of Ancient Books.</h2> */}
                 <Row>
                     <Col sm={12} xs={12} md={6} className="EveT_l_RicercaForm  mt-2 mx-auto "  >
                         <Form onSubmit={formSubmit}>

@@ -170,7 +170,7 @@ const SinglePost = (props) => {
                   <Table responsive="sm" >
                     <tbody>
                       <tr>
-                        <th>Recto</th>
+                        <th>Recto1</th>
                         <td>{recto === undefined ? '' : recto}</td>
                       </tr>
                       <tr>
