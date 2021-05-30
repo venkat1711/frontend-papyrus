@@ -91,7 +91,7 @@ export default class HomePage extends Component {
                         <button  type="button" class="btn btn-primary" 
                         style={{ display: this.getRole()==1 ? "block" : "none",cursor: "pointer" ,
                         float:"right",marginTop:"1px"}} onClick={this.show.bind(this)}>
-          Change Image</button>
+          Change Image 1</button>
           <button  type="button" class="btn btn-primary" 
                         style={{ display: this.getRole()==1 ? "block" : "none",cursor: "pointer" ,
                         float:"right",marginTop:"1px"}} onClick={this.show1.bind(this)}>
