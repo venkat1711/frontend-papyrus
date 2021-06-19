@@ -102,7 +102,7 @@ const SinglePost = (props) => {
                       <td>{inventory === undefined ? '' : inventory},{inventoryNumber === undefined ? '' : inventoryNumber}</td>
                     </tr>
                      <tr>
-                      <th>Edition</th>
+                      <th>Editions</th>
                       <td>{editionName === undefined ? '' : editionName}</td>
                     </tr>
                     <tr>
@@ -110,7 +110,7 @@ const SinglePost = (props) => {
                       <td>{TM === undefined ? '' : TM}</td>
                     </tr>
                     <tr>
-                      <th>CEDOPAL</th>
+                      <th>MP3</th>
                       <td>{CEDOPAL === undefined ? '' : CEDOPAL}</td>
                     </tr>
                     <tr>
@@ -170,7 +170,7 @@ const SinglePost = (props) => {
                   <Table responsive="sm" >
                     <tbody>
                       <tr>
-                        <th>Recto1</th>
+                        <th>Recto/Verso</th>
                         <td>{recto === undefined ? '' : recto}</td>
                       </tr>
                       <tr>

@@ -86,7 +86,7 @@ export default class HomePage extends Component {
             <Fragment>
                 <Row >
                     <Col sm={3} className="p-4" id="EveT_l_sideimg">
-                        <img className="d-block w-100" src={IMAGE_URL} alt='' width="30%" height="95%"/>
+                        <img className="d-block w-100" src={IMAGE_URL} alt='Ancient Papyrus' width="30%" height="95%"/>
                         <div>
                         <button  type="button" class="btn btn-primary" 
                         style={{ display: this.getRole()==1 ? "block" : "none",cursor: "pointer" ,
