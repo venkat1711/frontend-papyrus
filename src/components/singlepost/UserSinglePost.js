@@ -11,7 +11,7 @@ const UserSinglePost = (props) => {
         inventoryNumber,
         LDAB,
         TM,
-        CEDOPAL,
+        MP3,
         note,
         noteDate,
         noteONPA,
@@ -66,8 +66,8 @@ const UserSinglePost = (props) => {
                                             <td>{TM === undefined ? '' : TM}</td>
                                         </tr>
                                         <tr>
-                                            <th>CEDOPAL</th>
-                                            <td>{CEDOPAL === undefined ? '' : CEDOPAL}</td>
+                                            <th>MP3</th>
+                                            <td>{MP3 === undefined ? '' : MP3}</td>
                                         </tr>
                                         <tr>
                                             <th>Find Place</th>
@@ -138,7 +138,7 @@ const UserSinglePost = (props) => {
                                                 <td>{dimension === undefined ? '' : dimension}</td>
                                             </tr>
                                             <tr>
-                                                <th>No of Fragment</th>
+                                                <th>No of fragments</th>
                                                 <td>{fragment === undefined ? '' : `${fragment}fr;`}</td>
                                             </tr>
                                             <tr>

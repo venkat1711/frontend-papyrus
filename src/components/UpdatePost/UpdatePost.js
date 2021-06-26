@@ -60,7 +60,7 @@ const UpdatePost = (props) => {
         inventoryNumber,
         LDAB,
         TM,
-        CEDOPAL,
+        MP3,
         note,
         noteDate,
         noteONPA,
@@ -252,7 +252,7 @@ const UpdatePost = (props) => {
                                     <Col xs={8} sm={7} >
                                         <Form.Control type="text"
                                             // name='CEDOPAL'
-                                            value={CEDOPAL}
+                                            value={MP3}
                                             onChange={handleChange('CEDOPAL')} placeholder="CEDOPAL" />
                                     </Col>
                                 </Form.Group>

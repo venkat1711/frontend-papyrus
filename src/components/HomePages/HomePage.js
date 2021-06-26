@@ -112,7 +112,7 @@ export default class HomePage extends Component {
 
                     </Col>
                     <Col sm={9} className="p-4">
-                        <h3>PSIonline - PLAURonline - psi online PPadonline - PPRAGonline</h3>
+                        <h3>Greek and Latin Literary Papyri from the Arsinoites</h3>
                                                
         <div dangerouslySetInnerHTML={{ __html: this.state.pagecontent[0].content }} />
                     </Col>
