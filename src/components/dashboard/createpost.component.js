@@ -643,8 +643,7 @@ const CreatePost = () => {
                                                 onChange={handleChange('lateralMargin')} placeholder="Lateral per column" />
                                         </Col>
                                     </Form.Group>
-                                 
-                                    </Row>
+                                  </Row>
                                      </div> }
                                
                             </Row>
