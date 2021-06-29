@@ -35,7 +35,10 @@ const SinglePost = (props) => {
     signs,
     annotations,
     archiveDossier,
-    possibleReconstructions } = props.location.state.detail;
+    possibleReconstructions,
+    intercolumnspace,
+    linespercolumn,numberoffolios,innerMargin,externalMargin,
+    lateralMargin } = props.location.state.detail;
 
   const registerPost = () => {
     return isAuthenticated() ? (
@@ -82,6 +85,93 @@ const SinglePost = (props) => {
         }
       })
       .catch((err) => console.log(err, 'error in create post'));
+  };
+
+  const bookFormRender=(name)=>{
+   
+    if(name=='roll'){
+    return   (<React.Fragment> <tr>
+                        <th> number of columns</th>
+                        <td>{columns === undefined ? '' : columns}</td>
+                      </tr>
+                      <tr>
+                        <th>Upper Margin</th>
+                        <td>{upperMargin === undefined ? '' : upperMargin}</td>
+                      </tr>
+                      <tr>
+                        <th>Lower Margin</th>
+                        <td>{lowerMargin === undefined ? '' : lowerMargin}</td>
+                      </tr>
+                      <tr>
+                        <th> Inter Column space</th>
+                        <td>{intercolumnspace === undefined ? '' : intercolumnspace}</td>
+                      </tr><tr>
+                        <th>Lines per column</th>
+                        <td>{linespercolumn === undefined ? '' : linespercolumn}</td>
+                      </tr>
+                      <tr>
+                        <th> Dimensions</th>
+                        <td>{dimension === undefined ? '' : dimension}</td>
+                      </tr></React.Fragment>)
+    }else if(name=='codex'){
+      return   (<React.Fragment> <tr>
+        <th> number of columns</th>
+        <td>{columns === undefined ? '' : columns}</td>
+      </tr>
+      <tr>
+        <th>Upper Margin</th>
+        <td>{upperMargin === undefined ? '' : upperMargin}</td>
+      </tr>
+      <tr>
+        <th>Lower Margin</th>
+        <td>{lowerMargin === undefined ? '' : lowerMargin}</td>
+      </tr>
+      <tr>
+        <th> Number of folios</th>
+        <td>{numberoffolios === undefined ? '' : numberoffolios}</td>
+      </tr><tr>
+        <th>Lines per column</th>
+        <td>{linespercolumn === undefined ? '' : linespercolumn}</td>
+      </tr>
+      <tr>
+        <th> Dimensions</th>
+        <td>{dimension === undefined ? '' : dimension}</td>
+      </tr><tr>
+        <th>Inner Marging</th>
+        <td>{innerMargin === undefined ? '' : innerMargin}</td>
+      </tr>
+      <tr>
+        <th> External Margin</th>
+        <td>{externalMargin === undefined ? '' : externalMargin}</td>
+      </tr></React.Fragment>)
+    }else if(name=='sheet'){
+      return   (<React.Fragment> <tr>
+        <th> number of columns</th>
+        <td>{columns === undefined ? '' : columns}</td>
+      </tr>
+      <tr>
+        <th>Upper Margin</th>
+        <td>{upperMargin === undefined ? '' : upperMargin}</td>
+      </tr>
+      <tr>
+        <th>Lower Margin</th>
+        <td>{lowerMargin === undefined ? '' : lowerMargin}</td>
+      </tr>
+      <tr>
+        <th> Inter Column space</th>
+        <td>{intercolumnspace === undefined ? '' : intercolumnspace}</td>
+      </tr><tr>
+        <th>Lines per column</th>
+        <td>{linespercolumn === undefined ? '' : linespercolumn}</td>
+      </tr>
+      <tr>
+        <th> Dimensions</th>
+        <td>{dimension === undefined ? '' : dimension}</td>
+      </tr> <tr>
+        <th>Lateral Margin</th>
+        <td>{lateralMargin === undefined ? '' : lateralMargin}</td>
+      </tr></React.Fragment>)
+    }
   };
 
   return (
@@ -237,6 +327,7 @@ const SinglePost = (props) => {
                         <th>Possible Reconstructions</th>
                         <td>{possibleReconstructions === undefined ? '' : possibleReconstructions}</td>
                       </tr>
+                      { bookFormRender(bookform) }
                     </tbody>
                   </Table>
                 </Card>

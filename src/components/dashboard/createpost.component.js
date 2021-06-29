@@ -473,8 +473,8 @@ const CreatePost = () => {
                                 </Form.Label>
                                         <Col xs={8} sm={7} >
                                             <Form.Control type="text"
-                                                name='dimensions'
-                                                onChange={handleChange('dimensions')} placeholder="Dimensions" />
+                                                name='dimension'
+                                                onChange={handleChange('dimension')} placeholder="Dimensions" />
                                         </Col>
                                     </Form.Group>
                                     </Row>
@@ -541,8 +541,8 @@ const CreatePost = () => {
                                 </Form.Label>
                                         <Col xs={8} sm={7} >
                                             <Form.Control type="text"
-                                                name='dimensions'
-                                                onChange={handleChange('dimensions')} placeholder="Dimensions" />
+                                                name='dimension'
+                                                onChange={handleChange('dimension')} placeholder="Dimensions" />
                                         </Col>
                                     </Form.Group>
                                     </Row><Row md={2}>
