@@ -64,10 +64,12 @@ const CreatePost = () => {
         const value = name === 'photo' ? event.target.files[0] : event.target.value;
         data.formData.set(name, value);
         setData({ ...data, [name]: value });
+       // alert("data of set"+JSON.stringify(data.formData.get(name)));
     };
 
     const formSubmit = (e) => {
-        e.preventDefault();
+       // e.preventDefault();
+       //alert("called"+JSON.stringify(data.formData.get('intercolumnspace')));
         createPost(user._id, token, data.formData).then((data) => {
             if (data.error) {
                 toast.error(data.error);
@@ -648,7 +650,7 @@ const CreatePost = () => {
                                
                             </Row>
                             <div>
-                                <button type='submit' className="btn btn-outline-primary m-2 ">Save</button>
+                                <button type='submit' onClick={formSubmit} className="btn btn-outline-primary m-2 ">Save</button>
                                 <button type='reset' className="btn btn-outline-dark m-2 ">Reset</button>
                             </div>
 
