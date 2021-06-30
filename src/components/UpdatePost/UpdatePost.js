@@ -51,6 +51,8 @@ const UpdatePost = (props) => {
         cartonnage: "",
         acquisition: "",
         photo: "",
+        intercolumnspace:'',
+        linespercolumn:'',numberoffolios:'',externalMargin:'',innerMargin:'',laterlaMargins:'',
         formData: "",
     });
     const { user, token } = isAuthenticated();
@@ -79,7 +81,10 @@ const UpdatePost = (props) => {
         signs,
         annotations,
         archiveDossier,
-        possibleReconstructions, formData } = post;
+        possibleReconstructions, 
+        intercolumnspace,
+    linespercolumn,numberoffolios,innerMargin,externalMargin,
+    lateralMargin,formData } = post;
 
     useEffect(() => {
         try {
@@ -134,6 +139,12 @@ const UpdatePost = (props) => {
                     annotations: data.annotations,
                     archiveDossier: data.archiveDossier,
                     possibleReconstructions: data.possibleReconstructions,
+                    intercolumnspace:data.intercolumnspace,
+                    linespercolumn:data.linespercolumn,
+                    numberoffolios:data.numberoffolios,
+                    innerMargin:data.innerMargin,
+                    externalMargin:data.externalMargin,
+                    lateralMargin:data.lateralMargin,
                     formData: new FormData(),
 
                 })
@@ -323,54 +334,6 @@ const UpdatePost = (props) => {
                                             onChange={handleChange('reused')} placeholder="reused" />
                                     </Col>
                                 </Form.Group>
-
-                                <Form.Group as={Row}>
-                                    <Form.Label column xs={4} sm={4}>
-                                        Dimensions
-                                </Form.Label>
-                                    <Col xs={8} sm={7} >
-                                        <Form.Control type="text"
-                                            // name='dimension'
-                                            value={dimension}
-                                            onChange={handleChange('dimension')} placeholder="dimension" />
-                                    </Col>
-                                </Form.Group>
-
-                                <Form.Group as={Row}>
-                                    <Form.Label column xs={4} sm={4}>
-                                        number of columns
-                                </Form.Label>
-                                    <Col xs={8} sm={7} >
-                                        <Form.Control type="text"
-                                            // name='columns'
-                                            value={columns}
-                                            onChange={handleChange('columns')} placeholder="number of columns" />
-                                    </Col>
-                                </Form.Group>
-
-                                <Form.Group as={Row}>
-                                    <Form.Label column xs={4} sm={4}>
-                                        Upper margin
-                                </Form.Label>
-                                    <Col xs={8} sm={7} >
-                                        <Form.Control type="text"
-                                            // name='upperMargin'
-                                            value={upperMargin}
-                                            onChange={handleChange('upperMargin')} placeholder="Upper margin" />
-                                    </Col>
-                                </Form.Group>
-
-                                <Form.Group as={Row}>
-                                    <Form.Label column xs={4} sm={4}>
-                                        Lower margin
-                                </Form.Label>
-                                    <Col xs={8} sm={7} >
-                                        <Form.Control type="text"
-                                            // name='lowerMargin'
-                                            value={lowerMargin}
-                                            onChange={handleChange('lowerMargin')} placeholder="Lower margin" />
-                                    </Col>
-                                </Form.Group>
                                 <Form.Group as={Row}>
                                     <Form.Label htmlFor="input3" column xs={4} sm={4}>
                                         Genre :
@@ -379,22 +342,28 @@ const UpdatePost = (props) => {
                                         <GenreInputs handleChange={handleChange} genre={genre} />
                                     </Col>
                                 </Form.Group>
-
-                                <Form.Group as={Row}>
-                                    <Form.Label htmlFor="input15" column xs={4} sm={4}>
-                                        Upload Image :
-                                </Form.Label>
+                                <Form.Group as={Row} controlId="exampleForm.ControlTextarea1">
+                                    <Form.Label column xs={4} sm={4}>Note</Form.Label>
                                     <Col xs={8} sm={7} >
-                                        <Form.File
-                                            onChange={handleChange('photo')}
-                                            type='file'
-                                            // name='photo'
-                                            accept='image/*'
-                                            id='photo'
-                                        // required
-                                        />
+                                        <Form.Control as="textarea" value={note} onChange={handleChange('note')} rows={3} placeholder='general notes' />
                                     </Col>
                                 </Form.Group>
+
+                                <Form.Group as={Row} controlId="exampleForm.ControlTextarea1">
+                                    <Form.Label column xs={4} sm={4}>Bibliography</Form.Label>
+                                    <Col xs={8} sm={7} >
+                                        <Form.Control as="textarea" value={bibliography} onChange={handleChange('bibliography')} rows={3} placeholder='Bibliography' />
+                                    </Col>
+                                </Form.Group>
+                                <FormGroup as={Row}>
+                                    <Form.Label htmlFor="input9" column xs={4} sm={4}>
+                                        Bookform :
+                                </Form.Label>
+                                    <Col xs={8} sm={7} >
+                                        <BookformInputs handleChange={handleChange} bookform={bookform} />
+                                    </Col>
+                                </FormGroup>
+                                
                             </Col>
 
                             <Col md={6}>
@@ -434,16 +403,7 @@ const UpdatePost = (props) => {
                                             value={objectiveElements}
                                             onChange={handleChange('objectiveElements')} placeholder="objectiveElements" />
                                     </Col>
-                                </Form.Group>
-
-                                <FormGroup as={Row}>
-                                    <Form.Label htmlFor="input9" column xs={4} sm={4}>
-                                        Bookform :
-                                </Form.Label>
-                                    <Col xs={8} sm={7} >
-                                        <BookformInputs handleChange={handleChange} bookform={bookform} />
-                                    </Col>
-                                </FormGroup>
+                                </Form.Group>                               
 
                                 <FormGroup as={Row}>
                                     <Form.Label htmlFor="input13" column xs={4} sm={4}>
@@ -551,21 +511,260 @@ const UpdatePost = (props) => {
                                         <Form.Control as="textarea" value={philologicalFeatures} onChange={handleChange('philologicalFeatures')} rows={3} placeholder='Philological features' />
                                     </Col>
                                 </Form.Group>
-
-                                <Form.Group as={Row} controlId="exampleForm.ControlTextarea1">
-                                    <Form.Label column xs={4} sm={4}>Note</Form.Label>
+                                <Form.Group as={Row}>
+                                    <Form.Label htmlFor="input15" column xs={4} sm={4}>
+                                        Upload Image :
+                                </Form.Label>
                                     <Col xs={8} sm={7} >
-                                        <Form.Control as="textarea" value={note} onChange={handleChange('note')} rows={3} placeholder='general notes' />
+                                        <Form.File
+                                            onChange={handleChange('photo')}
+                                            type='file'
+                                            // name='photo'
+                                            accept='image/*'
+                                            id='photo'
+                                        // required
+                                        />
                                     </Col>
                                 </Form.Group>
-
-                                <Form.Group as={Row} controlId="exampleForm.ControlTextarea1">
-                                    <Form.Label column xs={4} sm={4}>Bibliography</Form.Label>
-                                    <Col xs={8} sm={7} >
-                                        <Form.Control as="textarea" value={bibliography} onChange={handleChange('bibliography')} rows={3} placeholder='Bibliography' />
-                                    </Col>
-                                </Form.Group>
+                                
                             </Col>
+
+                            { bookform === 'roll' && <div>
+                                     <Row md={2}>
+                                     <Form.Group as={Row}>
+                                        <Form.Label column xs={4} sm={4}>
+                                            number of columns
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                            <Form.Control type="text"
+                                                name='columns' value={columns}
+                                                onChange={handleChange('columns')} placeholder="number of columns" />
+                                        </Col>
+                                    </Form.Group>
+                                    <Form.Group as={Row}>
+                                        <Form.Label column xs={4} sm={4}>
+                                            Upper margin
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                            <Form.Control type="text"
+                                                name='upperMargin'  value={upperMargin}
+                                                onChange={handleChange('upperMargin')} placeholder="Upper margin" />
+                                        </Col>
+                                    </Form.Group>
+                                    </Row><Row md={2}>
+                                    <Form.Group as={Row}>
+                                        <Form.Label column xs={4} sm={4}>
+                                            Lower margin
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                            <Form.Control type="text"
+                                                name='lowerMargin' value={lowerMargin}
+                                                onChange={handleChange('lowerMargin')} placeholder="Lower margin" />
+                                        </Col>
+                                    </Form.Group>
+                                   
+                                    <Form.Group as={Row}>
+                                        <Form.Label column xs={4} sm={4}>
+                                            Inter column space
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                            <Form.Control type="text"
+                                                name='intercolumnspace' value={intercolumnspace}
+                                                onChange={handleChange('intercolumnspace')} placeholder="Inter column space" />
+                                        </Col>
+                                    </Form.Group>
+                                    </Row><Row md={2}>
+                                    <Form.Group as={Row}>
+                                        <Form.Label column xs={4} sm={4}>
+                                            Lines per column
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                            <Form.Control type="text"
+                                                name='linespercolumn' value={linespercolumn}
+                                                onChange={handleChange('linespercolumn')} placeholder="Lines per column" />
+                                        </Col>
+                                    </Form.Group>
+                                    <Form.Group as={Row}>
+                                        <Form.Label column xs={4} sm={4}>
+                                            Dimensions
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                            <Form.Control type="text"
+                                                name='dimension' value={dimension}
+                                                onChange={handleChange('dimension')} placeholder="Dimensions" />
+                                        </Col>
+                                    </Form.Group>
+                                    </Row>
+                                     </div> }
+
+                                     { bookform === 'codex' && <div>
+                                     <Row md={2}>
+                                     <Form.Group as={Row}>
+                                        <Form.Label column xs={4} sm={4}>
+                                            number of columns
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                            <Form.Control type="text"
+                                                name='columns' value={columns}
+                                                onChange={handleChange('columns')} placeholder="number of columns" />
+                                        </Col>
+                                    </Form.Group>
+                                    <Form.Group as={Row}>
+                                        <Form.Label column xs={4} sm={4}>
+                                            Upper margin
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                            <Form.Control type="text"
+                                                name='upperMargin' value={upperMargin}
+                                                onChange={handleChange('upperMargin')} placeholder="Upper margin" />
+                                        </Col>
+                                    </Form.Group>
+                                    </Row><Row md={2}>
+                                    <Form.Group as={Row}>
+                                        <Form.Label column xs={4} sm={4}>
+                                            Lower margin
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                            <Form.Control type="text"
+                                                name='lowerMargin' value={lowerMargin}
+                                                onChange={handleChange('lowerMargin')} placeholder="Lower margin" />
+                                        </Col>
+                                    </Form.Group>
+                                   
+                                    <Form.Group as={Row}>
+                                        <Form.Label column xs={4} sm={4}>
+                                            Number of folios
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                            <Form.Control type="text" 
+                                                name='numberoffolios' value={numberoffolios}
+                                                onChange={handleChange('numberoffolios')} placeholder="Number of folios" />
+                                        </Col>
+                                    </Form.Group>
+                                    </Row><Row md={2}>
+                                    <Form.Group as={Row}>
+                                        <Form.Label column xs={4} sm={4}>
+                                            Lines per column
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                            <Form.Control type="text"
+                                                name='linespercolumn' value={linespercolumn}
+                                                onChange={handleChange('linespercolumn')} placeholder="Lines per column" />
+                                        </Col>
+                                    </Form.Group>
+                                    <Form.Group as={Row}>
+                                        <Form.Label column xs={4} sm={4}>
+                                            Dimensions
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                            <Form.Control type="text"
+                                                name='dimension' value={dimension}
+                                                onChange={handleChange('dimension')} placeholder="Dimensions" />
+                                        </Col>
+                                    </Form.Group>
+                                    </Row><Row md={2}>
+                                    <Form.Group as={Row}>
+                                        <Form.Label column xs={4} sm={4}>
+                                            Inner margin
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                            <Form.Control type="text"
+                                                name='innerMargin' value={innerMargin}
+                                                onChange={handleChange('innerMargin')} placeholder="Inner margin" />
+                                        </Col>
+                                    </Form.Group>
+                                    <Form.Group as={Row}>
+                                        <Form.Label column xs={4} sm={4}>
+                                            External margin
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                            <Form.Control type="text"
+                                                name='externalMargin' value={externalMargin}
+                                                onChange={handleChange('externalMargin')} placeholder="External margin" />
+                                        </Col>
+                                    </Form.Group>
+                                    </Row>
+                                     </div> }
+                                       
+                                     { bookform === 'sheet' && <div>
+                                     <Row md={2}>
+                                     <Form.Group as={Row}>
+                                        <Form.Label column xs={4} sm={4}>
+                                            number of columns
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                            <Form.Control type="text"
+                                                name='columns' value={columns}
+                                                onChange={handleChange('columns')} placeholder="number of columns" />
+                                        </Col>
+                                    </Form.Group>
+                                    <Form.Group as={Row}>
+                                        <Form.Label column xs={4} sm={4}>
+                                            Upper margin
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                            <Form.Control type="text"
+                                                name='upperMargin' value={upperMargin}
+                                                onChange={handleChange('upperMargin')} placeholder="Upper margin" />
+                                        </Col>
+                                    </Form.Group>
+                                    </Row><Row md={2}>
+                                    <Form.Group as={Row}>
+                                        <Form.Label column xs={4} sm={4}>
+                                            Lower margin
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                            <Form.Control type="text"
+                                                name='lowerMargin' value={lowerMargin}
+                                                onChange={handleChange('lowerMargin')} placeholder="Lower margin" />
+                                        </Col>
+                                    </Form.Group>
+                                   
+                                    <Form.Group as={Row}>
+                                        <Form.Label column xs={4} sm={4}>
+                                            Inter column space
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                            <Form.Control type="text"
+                                                name='intercolumnspace' value={intercolumnspace}
+                                                onChange={handleChange('intercolumnspace')} placeholder="Inter column space" />
+                                        </Col>
+                                    </Form.Group>
+                                    </Row><Row md={2}>
+                                    <Form.Group as={Row}>
+                                        <Form.Label column xs={4} sm={4}>
+                                            Lines per column
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                            <Form.Control type="text"
+                                                name='linespercolumn' value={linespercolumn}
+                                                onChange={handleChange('linespercolumn')} placeholder="Lines per column" />
+                                        </Col>
+                                    </Form.Group>
+                                    <Form.Group as={Row}>
+                                        <Form.Label column xs={4} sm={4}>
+                                            Dimensions
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                            <Form.Control type="text"
+                                                name='dimensions' value={dimension}
+                                                onChange={handleChange('dimension')} placeholder="Dimensions" />
+                                        </Col>
+                                    </Form.Group>
+                                    </Row><Row md={2}>
+                                    <Form.Group as={Row}>
+                                        <Form.Label column xs={4} sm={4}>
+                                            Lateral Margins
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                            <Form.Control type="text"
+                                                name='lateralMargin' value={lateralMargin}
+                                                onChange={handleChange('lateralMargin')} placeholder="Lateral per column" />
+                                        </Col>
+                                    </Form.Group>
+                                  </Row>
+                                     </div> }
+
                         </Row>
                         <div>
                             <button type='submit' className="btn btn-outline-primary m-2 ">Save</button>

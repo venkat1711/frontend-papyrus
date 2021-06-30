@@ -412,7 +412,7 @@ const CreatePost = () => {
                                     </Form.Group>
                                     </Col>
                                
-                                     { data.formData.get('bookform') === 'roll' && <div>
+                                     { data.formData.get('bookform') === 'roll' && <React.Fragment> 
                                      <Row md={2}>
                                      <Form.Group as={Row}>
                                         <Form.Label column xs={4} sm={4}>
@@ -478,9 +478,9 @@ const CreatePost = () => {
                                         </Col>
                                     </Form.Group>
                                     </Row>
-                                     </div> }
+                                    </React.Fragment>  }
 
-                                     { data.formData.get('bookform') === 'codex' && <div>
+                                     { data.formData.get('bookform') === 'codex' && <React.Fragment> 
                                      <Row md={2}>
                                      <Form.Group as={Row}>
                                         <Form.Label column xs={4} sm={4}>
@@ -567,7 +567,7 @@ const CreatePost = () => {
                                         </Col>
                                     </Form.Group>
                                     </Row>
-                                     </div> }
+                                    </React.Fragment>  }
 
                                      { data.formData.get('bookform') === 'sheet' && <div>
                                      <Row md={2}>
