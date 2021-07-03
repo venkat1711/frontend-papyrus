@@ -38,7 +38,7 @@ const SinglePost = (props) => {
     possibleReconstructions,
     intercolumnspace,
     linespercolumn,numberoffolios,innerMargin,externalMargin,
-    lateralMargin,number } = props.location.state.detail;
+    lateralMargin,number,PN } = props.location.state.detail;
 
   const registerPost = () => {
     return isAuthenticated() ? (
@@ -258,6 +258,10 @@ const SinglePost = (props) => {
                     <tr>
                       <th>Bibliography</th>
                       <td>{bibliography === undefined ? '' : bibliography}</td>
+                    </tr>
+                    <tr>
+                      <th>PN</th>
+                      <td><a href={PN === undefined ? '' : PN} target="_blank">{PN === undefined ? '' : PN}</a></td>
                     </tr>
                   </tbody>
                 </Table>

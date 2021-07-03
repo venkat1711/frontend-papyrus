@@ -54,6 +54,7 @@ const UpdatePost = (props) => {
         intercolumnspace:'',
         linespercolumn:'',numberoffolios:'',externalMargin:'',innerMargin:'',laterlaMargins:'',
         number:'',
+        PN:'',
         formData: "",
     });
     const { user, token } = isAuthenticated();
@@ -85,7 +86,7 @@ const UpdatePost = (props) => {
         possibleReconstructions, 
         intercolumnspace,
     linespercolumn,numberoffolios,innerMargin,externalMargin,
-    lateralMargin,number,formData } = post;
+    lateralMargin,number,PN,formData } = post;
 
     useEffect(() => {
         try {
@@ -147,6 +148,7 @@ const UpdatePost = (props) => {
                     externalMargin:data.externalMargin,
                     lateralMargin:data.lateralMargin,
                     number:data.number,
+                    PN:data.PN,
                     formData: new FormData(),
 
                 })
@@ -340,7 +342,16 @@ const UpdatePost = (props) => {
                                         <Form.Control as="textarea" value={scriptDescription} onChange={handleChange('scriptDescription')} rows={3} placeholder='Script Description' />
                                     </Col>
                                 </Form.Group>
-   
+                                <FormGroup as={Row}>
+                                        <Form.Label htmlFor="input9" column xs={4} sm={4}>
+                                            PN :
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                        <Form.Control type="text"
+                                                name='PN' value={PN}
+                                                onChange={handleChange('PN')} placeholder="PN" />
+                                        </Col>
+                                    </FormGroup>
                                 <FormGroup as={Row}>
                                     <Form.Label htmlFor="input2" column xs={4} sm={4}>
                                         No.of Fragments :

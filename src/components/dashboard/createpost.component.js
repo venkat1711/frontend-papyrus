@@ -237,7 +237,16 @@ const CreatePost = () => {
                                             <Form.Control as="textarea" rows={3} onChange={handleChange('scriptDescription')} placeholder='Script Description' />
                                         </Col>
                                     </Form.Group>
-
+                                    <FormGroup as={Row}>
+                                        <Form.Label htmlFor="input9" column xs={4} sm={4}>
+                                            PN :
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                        <Form.Control type="text"
+                                                name='PN'
+                                                onChange={handleChange('PN')} placeholder="PN" />
+                                        </Col>
+                                    </FormGroup>
                                     <FormGroup as={Row}>
                                     <Form.Label htmlFor="input2" column xs={4} sm={4}>
                                         No.of Fragments :
@@ -254,7 +263,7 @@ const CreatePost = () => {
                                         <MaterialsInputs handleChange={handleChange} />
                                     </Col>
                                 </FormGroup>
-                                    
+      
                                     <FormGroup as={Row}>
                                         <Form.Label htmlFor="input9" column xs={4} sm={4}>
                                             Bookform :
