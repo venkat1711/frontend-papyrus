@@ -334,13 +334,13 @@ const UpdatePost = (props) => {
                                         <Form.Control as="textarea" value={note} onChange={handleChange('note')} rows={3} placeholder='general notes' />
                                     </Col>
                                 </Form.Group>
-
                                 <Form.Group as={Row} controlId="exampleForm.ControlTextarea1">
-                                    <Form.Label column xs={4} sm={4}>Bibliography</Form.Label>
+                                    <Form.Label column xs={4} sm={4}>Script Description</Form.Label>
                                     <Col xs={8} sm={7} >
-                                        <Form.Control as="textarea" value={bibliography} onChange={handleChange('bibliography')} rows={3} placeholder='Bibliography' />
+                                        <Form.Control as="textarea" value={scriptDescription} onChange={handleChange('scriptDescription')} rows={3} placeholder='Script Description' />
                                     </Col>
                                 </Form.Group>
+   
                                 <FormGroup as={Row}>
                                     <Form.Label htmlFor="input2" column xs={4} sm={4}>
                                         No.of Fragments :
@@ -502,17 +502,18 @@ const UpdatePost = (props) => {
                                     </Col>
                                 </Form.Group>
 
-                                <Form.Group as={Row} controlId="exampleForm.ControlTextarea1">
-                                    <Form.Label column xs={4} sm={4}>Script Description</Form.Label>
-                                    <Col xs={8} sm={7} >
-                                        <Form.Control as="textarea" value={scriptDescription} onChange={handleChange('scriptDescription')} rows={3} placeholder='Script Description' />
-                                    </Col>
-                                </Form.Group>
+                               
 
                                 <Form.Group as={Row} controlId="exampleForm.ControlTextarea1">
                                     <Form.Label column xs={4} sm={4}>Philological features</Form.Label>
                                     <Col xs={8} sm={7} >
                                         <Form.Control as="textarea" value={philologicalFeatures} onChange={handleChange('philologicalFeatures')} rows={3} placeholder='Philological features' />
+                                    </Col>
+                                </Form.Group>
+                                <Form.Group as={Row} controlId="exampleForm.ControlTextarea1">
+                                    <Form.Label column xs={4} sm={4}>Bibliography</Form.Label>
+                                    <Col xs={8} sm={7} >
+                                        <Form.Control as="textarea" value={bibliography} onChange={handleChange('bibliography')} rows={3} placeholder='Bibliography' />
                                     </Col>
                                 </Form.Group>
                                 <Form.Group as={Row}>
@@ -795,12 +796,13 @@ const UpdatePost = (props) => {
                                      { bookform !== 'tablet' &&
                                      bookform  !== 'sheet' &&
                                      bookform  !== 'codex' &&
-                                     bookform  !== 'roll' &&  <div>
+                                     bookform  !== 'roll' && 
+                                     bookform  !== undefined && <div>
                                      <Row md={1}>
                                      <Form.Group as={Row}>
                                         <Form.Label column xs={4} sm={4}>
                                             Dimensions
-                                </Form.Label>
+                                    </Form.Label>
                                         <Col xs={8} sm={7} >
                                             <Form.Control type="text"
                                                 name='dimensions'

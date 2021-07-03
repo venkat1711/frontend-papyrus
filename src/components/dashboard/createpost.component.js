@@ -232,11 +232,12 @@ const CreatePost = () => {
                                         </Col>
                                     </Form.Group>
                                     <Form.Group as={Row} controlId="exampleForm.ControlTextarea1">
-                                        <Form.Label column xs={4} sm={4}>Bibliography</Form.Label>
+                                        <Form.Label column xs={4} sm={4}>Script Description</Form.Label>
                                         <Col xs={8} sm={7} >
-                                            <Form.Control as="textarea" rows={3} onChange={handleChange('bibliography')} placeholder='Bibliography' />
+                                            <Form.Control as="textarea" rows={3} onChange={handleChange('scriptDescription')} placeholder='Script Description' />
                                         </Col>
                                     </Form.Group>
+
                                     <FormGroup as={Row}>
                                     <Form.Label htmlFor="input2" column xs={4} sm={4}>
                                         No.of Fragments :
@@ -377,12 +378,7 @@ const CreatePost = () => {
                                         </Col>
                                     </Form.Group>
 
-                                    <Form.Group as={Row} controlId="exampleForm.ControlTextarea1">
-                                        <Form.Label column xs={4} sm={4}>Script Description</Form.Label>
-                                        <Col xs={8} sm={7} >
-                                            <Form.Control as="textarea" rows={3} onChange={handleChange('scriptDescription')} placeholder='Script Description' />
-                                        </Col>
-                                    </Form.Group>
+
 
                                     <Form.Group as={Row} controlId="exampleForm.ControlTextarea1">
                                         <Form.Label column xs={4} sm={4}>Philological features</Form.Label>
@@ -395,6 +391,12 @@ const CreatePost = () => {
                                         <Form.Label column xs={4} sm={4}>Note</Form.Label>
                                         <Col xs={8} sm={7} >
                                             <Form.Control as="textarea" rows={3} onChange={handleChange('note')} placeholder='general notes' />
+                                        </Col>
+                                    </Form.Group>
+                                    <Form.Group as={Row} controlId="exampleForm.ControlTextarea1">
+                                        <Form.Label column xs={4} sm={4}>Bibliography</Form.Label>
+                                        <Col xs={8} sm={7} >
+                                            <Form.Control as="textarea" rows={3} onChange={handleChange('bibliography')} placeholder='Bibliography' />
                                         </Col>
                                     </Form.Group>
                                     <Form.Group as={Row}>
@@ -676,7 +678,8 @@ const CreatePost = () => {
                                      { data.formData.get('bookform') !== 'tablet' &&
                                      data.formData.get('bookform') !== 'sheet' &&
                                      data.formData.get('bookform') !== 'codex' &&
-                                     data.formData.get('bookform') !== 'roll' &&  <div>
+                                     data.formData.get('bookform') !== 'roll' &&
+                                     data.formData.get('bookform') !== null &&  <div>
                                      <Row md={1}>
                                      <Form.Group as={Row}>
                                         <Form.Label column xs={4} sm={4}>
