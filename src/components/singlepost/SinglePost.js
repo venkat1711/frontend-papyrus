@@ -35,7 +35,10 @@ const SinglePost = (props) => {
     signs,
     annotations,
     archiveDossier,
-    possibleReconstructions } = props.location.state.detail;
+    possibleReconstructions,
+    intercolumnspace,
+    linespercolumn,numberoffolios,innerMargin,externalMargin,
+    lateralMargin,number,PN } = props.location.state.detail;
 
   const registerPost = () => {
     return isAuthenticated() ? (
@@ -84,6 +87,108 @@ const SinglePost = (props) => {
       .catch((err) => console.log(err, 'error in create post'));
   };
 
+  const bookFormRender=(name)=>{
+   
+    if(name=='roll'){
+    return   (<React.Fragment> <tr>
+                        <th> number of columns</th>
+                        <td>{columns === undefined ? '' : columns}</td>
+                      </tr>
+                      <tr>
+                        <th>Upper Margin</th>
+                        <td>{upperMargin === undefined ? '' : upperMargin}</td>
+                      </tr>
+                      <tr>
+                        <th>Lower Margin</th>
+                        <td>{lowerMargin === undefined ? '' : lowerMargin}</td>
+                      </tr>
+                      <tr>
+                        <th> Inter Column space</th>
+                        <td>{intercolumnspace === undefined ? '' : intercolumnspace}</td>
+                      </tr><tr>
+                        <th>Lines per column</th>
+                        <td>{linespercolumn === undefined ? '' : linespercolumn}</td>
+                      </tr>
+                      <tr>
+                        <th> Dimensions</th>
+                        <td>{dimension === undefined ? '' : dimension}</td>
+                      </tr></React.Fragment>)
+    }else if(name=='codex'){
+      return   (<React.Fragment> <tr>
+        <th> number of columns</th>
+        <td>{columns === undefined ? '' : columns}</td>
+      </tr>
+      <tr>
+        <th>Upper Margin</th>
+        <td>{upperMargin === undefined ? '' : upperMargin}</td>
+      </tr>
+      <tr>
+        <th>Lower Margin</th>
+        <td>{lowerMargin === undefined ? '' : lowerMargin}</td>
+      </tr>
+      <tr>
+        <th> Number of folios</th>
+        <td>{numberoffolios === undefined ? '' : numberoffolios}</td>
+      </tr><tr>
+        <th>Lines per column</th>
+        <td>{linespercolumn === undefined ? '' : linespercolumn}</td>
+      </tr>
+      <tr>
+        <th> Dimensions</th>
+        <td>{dimension === undefined ? '' : dimension}</td>
+      </tr><tr>
+        <th>Inner Marging</th>
+        <td>{innerMargin === undefined ? '' : innerMargin}</td>
+      </tr>
+      <tr>
+        <th> External Margin</th>
+        <td>{externalMargin === undefined ? '' : externalMargin}</td>
+      </tr></React.Fragment>)
+    }else if(name=='sheet'){
+      return   (<React.Fragment> <tr>
+        <th> number of columns</th>
+        <td>{columns === undefined ? '' : columns}</td>
+      </tr>
+      <tr>
+        <th>Upper Margin</th>
+        <td>{upperMargin === undefined ? '' : upperMargin}</td>
+      </tr>
+      <tr>
+        <th>Lower Margin</th>
+        <td>{lowerMargin === undefined ? '' : lowerMargin}</td>
+      </tr>
+      <tr>
+        <th> Inter Column space</th>
+        <td>{intercolumnspace === undefined ? '' : intercolumnspace}</td>
+      </tr><tr>
+        <th>Lines per column</th>
+        <td>{linespercolumn === undefined ? '' : linespercolumn}</td>
+      </tr>
+      <tr>
+        <th> Dimensions</th>
+        <td>{dimension === undefined ? '' : dimension}</td>
+      </tr> <tr>
+        <th>Lateral Margin</th>
+        <td>{lateralMargin === undefined ? '' : lateralMargin}</td>
+      </tr></React.Fragment>)
+    }else if(bookform=='tablet'){
+      return (<React.Fragment><tr>
+      <th>Number</th>
+      <td>{number === undefined ? '' : number}</td>
+    </tr>
+    <tr>
+      <th> Dimensions</th>
+      <td>{dimension === undefined ? '' : dimension}</td>
+    </tr></React.Fragment>)
+    }else{
+      return (<React.Fragment>
+    <tr>
+      <th> Dimensions</th>
+      <td>{dimension === undefined ? '' : dimension}</td>
+    </tr></React.Fragment>)
+    }
+  };
+
   return (
     <Fragment>
       <Container className=" mt-3">
@@ -129,10 +234,7 @@ const SinglePost = (props) => {
                       <th>Acquisition</th>
                       <td>{acquisition === undefined ? '' : acquisition}</td>
                     </tr>
-                    <tr>
-                      <th>Material</th>
-                      <td>{material === undefined ? '' : material}</td>
-                    </tr>
+ 
                     <tr>
                       <th>Notes on Provenance and Acquisition</th>
                       <td>{noteONPA === undefined ? '' : noteONPA}</td>
@@ -156,6 +258,10 @@ const SinglePost = (props) => {
                     <tr>
                       <th>Bibliography</th>
                       <td>{bibliography === undefined ? '' : bibliography}</td>
+                    </tr>
+                    <tr>
+                      <th>PN</th>
+                      <td><a href={PN === undefined ? '' : PN} target="_blank">{PN === undefined ? '' : PN}</a></td>
                     </tr>
                   </tbody>
                 </Table>
@@ -181,10 +287,7 @@ const SinglePost = (props) => {
                         <th>Dimension</th>
                         <td>{dimension === undefined ? '' : dimension}</td>
                       </tr>
-                      <tr>
-                        <th>No of fragments</th>
-                        <td>{fragment === undefined ? '' : `${fragment}fr;`}</td>
-                      </tr>
+
                       <tr>
                         <th>Columns</th>
                         <td>{columns === undefined ? '' : columns}</td>
@@ -205,10 +308,7 @@ const SinglePost = (props) => {
                         <th>Author</th>
                         <td>{author === undefined ? '' : author}</td>
                       </tr>
-                      <tr>
-                        <th>Book form</th>
-                        <td>{bookform === undefined ? '' : bookform}</td>
-                      </tr>
+                     
                       <tr>
                         <th>Genre</th>
                         <td>{genre === undefined ? '' : genre}</td>
@@ -237,6 +337,19 @@ const SinglePost = (props) => {
                         <th>Possible Reconstructions</th>
                         <td>{possibleReconstructions === undefined ? '' : possibleReconstructions}</td>
                       </tr>
+                      <tr>
+                        <th>No of fragments</th>
+                        <td>{fragment === undefined ? '' : `${fragment}fr;`}</td>
+                      </tr>
+                      <tr>
+                      <th>Material</th>
+                      <td>{material === undefined ? '' : material}</td>
+                    </tr>
+                      <tr>
+                        <th>Book form</th>
+                        <td>{bookform === undefined ? '' : bookform}</td>
+                      </tr>
+                      { bookFormRender(bookform) }
                     </tbody>
                   </Table>
                 </Card>

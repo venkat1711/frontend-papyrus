@@ -5,7 +5,7 @@ import { getFragment } from '../../../api/AllCategories/fragment';
 const NoofFragment = ({ handleChange, fragment }) => {
 
     const [values, setValues] = useState({
-        Fragment: []
+        Fragment: ''
     });
 
     const loadFragment = () => {
@@ -32,21 +32,16 @@ const NoofFragment = ({ handleChange, fragment }) => {
 
     return (
         <Fragment>
-            <Form.Control
-                size='md'
-                as='select'
-                onChange={handleChange('fragment')}
-                // defaultValue='Choose...'
-                value={fragment}
-                required
-            >
-                <option>Please select a Fragment</option>
+            <Form.Control type="text"
+                                                name='fragment' value={fragment}
+                                                onChange={handleChange('fragment')} placeholder="fragment" >
+                {/* <option>Please select a Fragment</option>
                 {values.Fragment &&
                     values.Fragment.map((c, i) => (
                         <option key={i} value={c.name}>
                             {c.name}
                         </option>
-                    ))}
+                    ))} */}
             </Form.Control>
         </Fragment>
     )
