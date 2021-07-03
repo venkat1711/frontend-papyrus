@@ -34,19 +34,19 @@ const NoofFragment = ({ handleChange, fragment }) => {
         <Fragment>
             <Form.Control
                 size='md'
-                as='select'
+                as='text'
                 onChange={handleChange('fragment')}
                 // defaultValue='Choose...'
                 value={fragment}
                 required
             >
-                <option>Please select a Fragment</option>
+                {/* <option>Please select a Fragment</option>
                 {values.Fragment &&
                     values.Fragment.map((c, i) => (
                         <option key={i} value={c.name}>
                             {c.name}
                         </option>
-                    ))}
+                    ))} */}
             </Form.Control>
         </Fragment>
     )

@@ -53,6 +53,7 @@ const UpdatePost = (props) => {
         photo: "",
         intercolumnspace:'',
         linespercolumn:'',numberoffolios:'',externalMargin:'',innerMargin:'',laterlaMargins:'',
+        number:'',
         formData: "",
     });
     const { user, token } = isAuthenticated();
@@ -84,7 +85,7 @@ const UpdatePost = (props) => {
         possibleReconstructions, 
         intercolumnspace,
     linespercolumn,numberoffolios,innerMargin,externalMargin,
-    lateralMargin,formData } = post;
+    lateralMargin,number,formData } = post;
 
     useEffect(() => {
         try {
@@ -145,6 +146,7 @@ const UpdatePost = (props) => {
                     innerMargin:data.innerMargin,
                     externalMargin:data.externalMargin,
                     lateralMargin:data.lateralMargin,
+                    number:data.number,
                     formData: new FormData(),
 
                 })
@@ -293,23 +295,7 @@ const UpdatePost = (props) => {
                                     </Col>
                                 </Form.Group>
 
-                                <FormGroup as={Row}>
-                                    <Form.Label htmlFor="input8" column xs={4} sm={4}>
-                                        Material :
-                            </Form.Label>
-                                    <Col xs={8} sm={7} >
-                                        <MaterialsInputs handleChange={handleChange} material={material} />
-                                    </Col>
-                                </FormGroup>
-
-                                <FormGroup as={Row}>
-                                    <Form.Label htmlFor="input2" column xs={4} sm={4}>
-                                        No.of Fragments :
-                            </Form.Label>
-                                    <Col xs={8} sm={7} >
-                                        <FragmentInputs handleChange={handleChange} fragment={fragment} />
-                                    </Col>
-                                </FormGroup>
+                                
 
                                 <Form.Group as={Row}>
                                     <Form.Label column xs={4} sm={4}>
@@ -355,6 +341,24 @@ const UpdatePost = (props) => {
                                         <Form.Control as="textarea" value={bibliography} onChange={handleChange('bibliography')} rows={3} placeholder='Bibliography' />
                                     </Col>
                                 </Form.Group>
+                                <FormGroup as={Row}>
+                                    <Form.Label htmlFor="input2" column xs={4} sm={4}>
+                                        No.of Fragments :
+                            </Form.Label>
+                                    <Col xs={8} sm={7} >
+                                        <FragmentInputs handleChange={handleChange} fragment={fragment} />
+                                    </Col>
+                                </FormGroup>
+                                <FormGroup as={Row}>
+                                    <Form.Label htmlFor="input8" column xs={4} sm={4}>
+                                        Material :
+                            </Form.Label>
+                                    <Col xs={8} sm={7} >
+                                        <MaterialsInputs handleChange={handleChange} material={material} />
+                                    </Col>
+                                </FormGroup>
+
+                             
                                 <FormGroup as={Row}>
                                     <Form.Label htmlFor="input9" column xs={4} sm={4}>
                                         Bookform :
@@ -763,6 +767,47 @@ const UpdatePost = (props) => {
                                         </Col>
                                     </Form.Group>
                                   </Row>
+                                     </div> }
+                                     { bookform === 'tablet' && <div>
+                                     <Row md={2}>
+                                    <Form.Group as={Row}>
+                                        <Form.Label column xs={4} sm={4}>
+                                            Number
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                            <Form.Control type="text"
+                                                name='number' value={number}
+                                                onChange={handleChange('number')} placeholder="Number" />
+                                        </Col>
+                                    </Form.Group>
+                                    <Form.Group as={Row}>
+                                        <Form.Label column xs={4} sm={4}>
+                                            Dimensions
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                            <Form.Control type="text"
+                                                name='dimensions' value={dimension}
+                                                onChange={handleChange('dimension')} placeholder="Dimensions" />
+                                        </Col>
+                                    </Form.Group>
+                                    </Row>
+                                     </div> }
+                                     { bookform !== 'tablet' &&
+                                     bookform  !== 'sheet' &&
+                                     bookform  !== 'codex' &&
+                                     bookform  !== 'roll' &&  <div>
+                                     <Row md={1}>
+                                     <Form.Group as={Row}>
+                                        <Form.Label column xs={4} sm={4}>
+                                            Dimensions
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                            <Form.Control type="text"
+                                                name='dimensions'
+                                                onChange={handleChange('dimension')} placeholder="Dimensions" />
+                                        </Col>
+                                    </Form.Group>
+                                    </Row>
                                      </div> }
 
                         </Row>
