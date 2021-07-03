@@ -25,7 +25,8 @@ const RicercaForm = ({ history }) => {
         provenance: "",
         dataGt: 0,
         dataLt: 0,
-        acquisition: ""
+        acquisition: "",
+        TM:0
     });
 
     const handleChange = (e) => {
@@ -287,6 +288,40 @@ const RicercaForm = ({ history }) => {
                                     </>
                                 </Col>
                             </FormGroup>
+                            <FormGroup as={Row}>
+                                <Form.Label htmlFor="input1" column xs={4} sm={4}>
+                             TM Number
+                                </Form.Label>
+                                <Col xs={7} sm={7} >
+                                <Form.Control type="text"
+                                                name='TM'
+                                                onChange={handleChange} placeholder="TM" />
+
+                                </Col>
+                                <Col xs={1} sm={1} >
+                                    <>
+                                        {['bottom-start'].map((placement) => (
+                                            <OverlayTrigger
+                                            trigger="click"
+                                                key={placement}
+                                                placement={placement}
+                                                overlay={
+                                                    <Popover id={`popover-positioned-${placement}`}>
+                                                        <Popover.Title as="h3">{`Origin`}</Popover.Title>
+                                                        <Popover.Content>
+                                                            <strong>TM</strong> The place where a text was found or written.You can use modern countries, ancient regions and provinces or names of ancient or modern cities.
+                                                            <a href='/tmInfo' target="blank"> LearnMore...</a>
+                                                         </Popover.Content>
+                                                    </Popover>
+                                                }
+                                            >
+                                                <img style={{ width: '30px', height: '30px' }} src={Img} alt='' />
+                                            </OverlayTrigger>
+                                        ))}
+                                    </>
+                                </Col>
+                            </FormGroup>
+
 
                             <div className=" m-5">
                                 <button type='submit' className="btn btn-danger m-2 " >search</button>
