@@ -48,6 +48,7 @@ import Acquisitioninfo from '../src/Navbars/last Nav/lastNavPages/infoPages/Acqu
 import Genereinfo from '../src/Navbars/last Nav/lastNavPages/infoPages/Genereinfo';
 import Dateinfo from '../src/Navbars/last Nav/lastNavPages/infoPages/Dateinfo';
 import TMInfo from './Navbars/last Nav/lastNavPages/infoPages/TMInfo';
+import ViewPost from './components/viewpost/ViewPost';
 
 const App = () => {
   return (
@@ -99,7 +100,7 @@ const App = () => {
         <Route exact path="/dateinfo" component={Dateinfo} />
         <Route exact path="/acquistioninfo" component={Acquisitioninfo} />
         <Route exact path="/tmInfo" component={TMInfo} />
-
+        <Route exact path="/viewpost/:id" component={ViewPost} />
 
       </Switch>
     </Fragment>

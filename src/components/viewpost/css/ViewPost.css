@@ -1,0 +1,17 @@
+@media only screen and (max-width:768px){
+    .EveT_l_inputgroup {
+        width: 100% !important;
+    }
+}
+
+@media only screen and (max-width:320px){
+    .EveT_l_inputgroup {
+        width: 100% !important;
+    }
+}
+table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+    width: 30% !important;
+}

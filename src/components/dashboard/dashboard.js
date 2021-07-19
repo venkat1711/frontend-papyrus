@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment  } from 'react';
 import { withRouter } from "react-router-dom";
 import SideNav from './DashboardSideNav';
 import { Card, Row } from 'react-bootstrap';
@@ -7,6 +7,7 @@ import { getPosts, deletePost } from '../../api/AllPosts/allposts';
 import ImageComponent from './imageComponent/image';
 import { toast } from 'react-toastify';
 import moment from 'moment';
+import { API } from '../../config';
 
 const Dashboard = (props) => {
   const [state, setState] = useState([]);
@@ -68,7 +69,16 @@ const Dashboard = (props) => {
             <div className="my-3 gridBox">
               {state.map((c, i) => (
                 <Card className='my-2' key={c._id}>
-                  <ImageComponent item={c._id} />
+                  {/* <ImageComponent item={c._id} onClick={() => props.history.push({
+                        pathname: '/viewpost/'+c.id,
+                        state: { detail: c }
+                      })} /> */}
+                      <Fragment>
+      <Card.Img variant="top" src={`${API}/allposts/photo/${c._id}`} onClick={() => props.history.push({
+                        pathname: '/viewpost/'+c._id,
+                        state: { detail: c }
+                      })} className='my-2' width='100%' height='300px' style={{ objectFit: 'cover' }} />
+    </Fragment>
                   <Card.Body>
                     <Card.Title id='heading-wrapper'>{c.papyrusId === undefined ? '' : c.papyrusId}</Card.Title>
                     <Card.Text>
