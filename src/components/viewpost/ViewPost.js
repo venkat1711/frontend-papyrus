@@ -170,7 +170,13 @@ export default class ViewPost extends Component {
           <Col md={4} >
               <div className='my-4'>
                 {/* <ImageComponent item={this.state.data._id} download onClick={e => download(e)}/> */}
-                <img  src={`${API}/allposts/photo/${this.state.data._id}`}  download onClick={e => download(e)}/>
+                <a href={`${API}/allposts/photo/${this.state.data._id}`} target="_blank">
+                <img  src={`${API}/allposts/photo/${this.state.data._id}`}  />
+                </a>
+               
+              </div>
+              <div>
+              <button  type="button" class="btn btn-primary"  download onClick={e => download(e)}>download</button>
               </div>
               
 

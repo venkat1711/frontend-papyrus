@@ -5,6 +5,7 @@ import ImageComponent from '../dashboard/imageComponent/image';
 import { Fragment } from 'react';
 import moment from 'moment';
 import '../../App.css';
+import { API } from '../../config';
 
 const AllPosts = (props) => {
 
@@ -15,7 +16,13 @@ const AllPosts = (props) => {
           <div className="my-3 gridBox">
             {props.location.state.detail.map((c) => (
               <Card className='my-2' key={c._id}>
-                <ImageComponent item={c._id} />
+                {/* <ImageComponent item={c._id} /> */}
+                <Fragment>
+      <Card.Img variant="top" src={`${API}/allposts/photo/${c._id}`} onClick={() => props.history.push({
+                        pathname: '/viewpost/'+c._id,
+                        state: { detail: c }
+                      })} className='my-2' width='100%' height='300px' style={{ objectFit: 'cover' }} />
+    </Fragment>
                 <Card.Body>
                   <Card.Title id='heading-wrapper'>{c.papyrusId === undefined ? '' : c.papyrusId}</Card.Title>
                   <Card.Text>
