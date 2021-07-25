@@ -58,12 +58,7 @@ const Dashboard = (props) => {
           </Card>
 
           <h2 className="text-secondary">recenti posts</h2>
-          <select  name="test" id="test">
-    <option value="all">All</option>
-    <option value="roll">Roll</option>
-    <option value="codex">Codex</option>
-    <option value="sheet">Sheet</option>
-  </select>
+          
 
           <Row className="my-3">
             <div className="my-3 gridBox">

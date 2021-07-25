@@ -38,7 +38,7 @@ const SinglePost = (props) => {
     possibleReconstructions,
     intercolumnspace,
     linespercolumn,numberoffolios,innerMargin,externalMargin,
-    lateralMargin,number,PN } = props.location.state.detail;
+    lateralMargin,number,PN,work } = props.location.state.detail;
 
   const registerPost = () => {
     return isAuthenticated() ? (
@@ -306,7 +306,7 @@ const SinglePost = (props) => {
                       </tr>
                       <tr>
                         <th>Author</th>
-                        <td>{author === undefined ? '' : author}</td>
+                        <td>{author === undefined ? '' : author+" "+work}</td>
                       </tr>
                      
                       <tr>

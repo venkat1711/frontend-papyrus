@@ -30,7 +30,8 @@ const UserSinglePost = (props) => {
         signs,
         annotations,
         archiveDossier,
-        possibleReconstructions } = props.location.state.detail;
+        work,
+        possibleReconstructions,work } = props.location.state.detail;
 
     return (
         <Fragment>

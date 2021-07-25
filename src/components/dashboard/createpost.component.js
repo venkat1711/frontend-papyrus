@@ -14,6 +14,7 @@ import DataZone from './inputComponents/DataZone';
 import { isAuthenticated } from '../../api/auth';
 import { toast } from 'react-toastify';
 import './css/createpost.css';
+import Reused from './Reused';
 
 const CreatePost = () => {
     const [data, setData] = useState({
@@ -56,6 +57,7 @@ const CreatePost = () => {
         intercolumnspace:'',
         linespercolumn:'',numberoffolios:'',externalMargin:'',innerMargin:'',laterlaMargins:'',
         number:'',
+        work:'',
         formData: new FormData(),
     });
 
@@ -216,9 +218,11 @@ const CreatePost = () => {
                                             Reused
                                 </Form.Label>
                                         <Col xs={8} sm={7} >
-                                            <Form.Control type="text"
+                                            {/* <Form.Control type="text"
                                                 name='reused'
                                                 onChange={handleChange('reused')} placeholder="reused" />
+                                                 */}
+                                                  <Reused handleChange={handleChange} />
                                         </Col>
                                     </Form.Group>
 
@@ -277,10 +281,20 @@ const CreatePost = () => {
                                 <Col md={6}>
                                     <FormGroup as={Row}>
                                         <Form.Label htmlFor="input1" column xs={4} sm={4}>
-                                            Ancient Author & Work :
+                                            Ancient Author :
                                  </Form.Label>
                                         <Col xs={8} sm={7} >
                                             <AuthorInputs handleChange={handleChange} />
+                                        </Col>
+                                    </FormGroup>
+                                    <FormGroup as={Row}>
+                                        <Form.Label htmlFor="input9" column xs={4} sm={4}>
+                                            work :
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                        <Form.Control type="text"
+                                                name='work'
+                                                onChange={handleChange('work')} placeholder="Work" />
                                         </Col>
                                     </FormGroup>
 

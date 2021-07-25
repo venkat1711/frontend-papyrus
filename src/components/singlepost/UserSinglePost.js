@@ -30,7 +30,7 @@ const UserSinglePost = (props) => {
         signs,
         annotations,
         archiveDossier,
-        possibleReconstructions } = props.location.state.detail;
+        possibleReconstructions,work } = props.location.state.detail;
 
     return (
         <Fragment>
@@ -159,7 +159,7 @@ const UserSinglePost = (props) => {
                                             </tr>
                                             <tr>
                                                 <th>Author</th>
-                                                <td>{author === undefined ? '' : author}</td>
+                                                <td>{author === undefined ? '' : author+" "+work}</td>
                                             </tr>
                                             <tr>
                                                 <th>Book form</th>

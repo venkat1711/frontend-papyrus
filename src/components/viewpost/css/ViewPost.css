@@ -15,3 +15,8 @@ table td, .table th {
     border-top: 1px solid #dee2e6;
     width: 30% !important;
 }
+
+.photo {
+    height: 30%;
+    width: 100%;
+  }

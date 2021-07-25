@@ -14,6 +14,7 @@ import CartonnageInputs from '../dashboard/inputComponents/Cartonnage';
 import AcquisitionInputs from '../dashboard/inputComponents/Acqusition';
 import { toast } from 'react-toastify';
 import { Form, FormGroup, Col, Row, Container } from 'react-bootstrap';
+import Reused from '../dashboard/Reused';
 
 const UpdatePost = (props) => {
     const [post, setPost] = useState({
@@ -55,6 +56,7 @@ const UpdatePost = (props) => {
         linespercolumn:'',numberoffolios:'',externalMargin:'',innerMargin:'',laterlaMargins:'',
         number:'',
         PN:'',
+        work:'',
         formData: "",
     });
     const { user, token } = isAuthenticated();
@@ -86,7 +88,7 @@ const UpdatePost = (props) => {
         possibleReconstructions, 
         intercolumnspace,
     linespercolumn,numberoffolios,innerMargin,externalMargin,
-    lateralMargin,number,PN,formData } = post;
+    lateralMargin,number,PN,work,formData } = post;
 
     useEffect(() => {
         try {
@@ -149,6 +151,7 @@ const UpdatePost = (props) => {
                     lateralMargin:data.lateralMargin,
                     number:data.number,
                     PN:data.PN,
+                    work:data.work,
                     formData: new FormData(),
 
                 })
@@ -316,10 +319,8 @@ const UpdatePost = (props) => {
                                         Reused
                                 </Form.Label>
                                     <Col xs={8} sm={7} >
-                                        <Form.Control type="text"
-                                            // name='reused'
-                                            value={reused}
-                                            onChange={handleChange('reused')} placeholder="reused" />
+                                  
+                                             <Reused handleChange={handleChange} reused={reused} />
                                     </Col>
                                 </Form.Group>
                                 <Form.Group as={Row}>
@@ -385,12 +386,24 @@ const UpdatePost = (props) => {
 
                                 <FormGroup as={Row}>
                                     <Form.Label htmlFor="input1" column xs={4} sm={4}>
-                                        Ancient Author & Work :
+                                        Ancient Author  :
                                 </Form.Label>
                                     <Col xs={8} sm={7} >
                                         <AuthorInputs handleChange={handleChange} author={author} />
                                     </Col>
                                 </FormGroup>
+                                <Form.Group as={Row}>
+                                    <Form.Label column xs={4} sm={4}>
+                                        Work
+                                </Form.Label>
+                                    <Col xs={8} sm={7} >
+                                        <Form.Control type="text"
+                                            // name='editionName'
+                                            value={work}
+                                            onChange={handleChange('work')}
+                                            placeholder="work" />
+                                    </Col>
+                                </Form.Group>
 
                                 <Form.Group as={Row}>
                                     <Form.Label htmlFor="input15" column xs={4} sm={4}>

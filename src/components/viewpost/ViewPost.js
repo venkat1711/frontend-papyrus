@@ -171,7 +171,7 @@ export default class ViewPost extends Component {
               <div className='my-4'>
                 {/* <ImageComponent item={this.state.data._id} download onClick={e => download(e)}/> */}
                 <a href={`${API}/allposts/photo/${this.state.data._id}`} target="_blank">
-                <img  src={`${API}/allposts/photo/${this.state.data._id}`}  />
+                <img  src={`${API}/allposts/photo/${this.state.data._id}`}  className="photo"/>
                 </a>
                
               </div>
@@ -181,7 +181,7 @@ export default class ViewPost extends Component {
               
 
             </Col>
-            <Col md={8} className='mt-4'>
+            <Col md={4} className='mt-4'>
               <Card>
                 <Table responsive="sm" >
                   <tbody>
