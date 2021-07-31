@@ -171,11 +171,12 @@ export default class ViewPost extends Component {
               <div className='my-4'>
                 {/* <ImageComponent item={this.state.data._id} download onClick={e => download(e)}/> */}
                 <a href={`${API}/allposts/photo/${this.state.data._id}`} target="_blank">
-                <img  src={`${API}/allposts/photo/${this.state.data._id}`}  className="photo"/>
+                <img  src={`${API}/allposts/photo/${this.state.data._id}`}  class="card-img-top my-2"
+                width='100%' height='300px' style={{ objectFit: 'cover' }}/>
                 </a>
                
               </div>
-              <div>{this.state.data.digitalImageLink}
+              <div>
                 {(this.state.data.digitalImageLink === ''||this.state.data.digitalImageLink === undefined)&&
               <button  type="button" class="btn btn-primary"  download onClick={e => download(e)}>download</button>
                 }
@@ -187,16 +188,16 @@ export default class ViewPost extends Component {
               <Card>
                 <Table responsive="sm" >
                   <tbody>
-                  <tr>
-                      <th>Title</th>
-                      <td>Descrition</td>
-                    </tr>
                     <tr>
                       <th>Papyrus ID</th>
                       <td>{this.state.data.papyrusId === undefined ? '' : this.state.data.papyrusId}</td>
                     </tr>
                     <tr>
-                      <th>Digital Images</th>
+                      <th>Date</th>
+                      <td>{this.state.data.editiondata === undefined ? '' : this.state.data.editiondata}</td>
+                    </tr>
+                    <tr>
+                      <th>Source</th>
                       <td><a href={this.state.data.digitalImageLink === undefined ? '' : this.state.data.digitalImageLink} 
                       target="_blank">{this.state.data.digitalImageLink === undefined ? '' : this.state.data.digitalImageLink}</a></td>
                     </tr>
