@@ -262,7 +262,7 @@ const CreatePost = () => {
                                 </FormGroup>
                                 <FormGroup as={Row}>
                                         <Form.Label htmlFor="input9" column xs={4} sm={4}>
-                                            DigitalImageLink :
+                                            Source :
                                 </Form.Label>
                                         <Col xs={8} sm={7} >
                                         <Form.Control type="text"
@@ -433,6 +433,7 @@ const CreatePost = () => {
                                             <Form.Control as="textarea" rows={3} onChange={handleChange('bibliography')} placeholder='Bibliography' />
                                         </Col>
                                     </Form.Group>
+                                    
                                     <Form.Group as={Row}>
                                         <Form.Label htmlFor="input15" column xs={4} sm={4}>
                                             Upload Image :

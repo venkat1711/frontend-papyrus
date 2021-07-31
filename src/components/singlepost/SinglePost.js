@@ -349,7 +349,7 @@ const SinglePost = (props) => {
                         <td>{fragment === undefined ? '' : `${fragment}fr;`}</td>
                       </tr>
                       <tr>
-                      <th>DigitalImageLink</th>
+                      <th>Image Source</th>
                       <td>{digitalImageLink === undefined ? '' : digitalImageLink}</td>
                     </tr>
                       <tr>
