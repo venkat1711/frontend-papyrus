@@ -22,12 +22,14 @@ const download = e => {
     });
   }
 
-const ProfileImage = ({ item }) => {
+const ProfileImage = ({ item,digitalImageLink }) => {
   
   return (
     <Fragment>
-      <Card.Img variant="top" src={`${API}/allposts/photo/${item}`} className='my-2' width='100%' height='300px' style={{ objectFit: 'cover' }} />
-   <button  type="button" class="btn btn-primary"  download onClick={e => download(e)}>download</button>
+      <Card.Img variant="top" src={`${API}/allposts/photo/${item}`} className='my-2'
+      width='100%' height='300px' style={{ objectFit: 'cover' }} />
+   { digitalImageLink !== '' && <button  type="button" class="btn btn-primary"  download onClick={e => download(e)}>download</button>
+}
     </Fragment>
   );
 };

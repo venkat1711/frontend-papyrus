@@ -30,7 +30,7 @@ const UserSinglePost = (props) => {
         signs,
         annotations,
         archiveDossier,
-        possibleReconstructions,work } = props.location.state.detail;
+        possibleReconstructions,work,digitalImageLink } = props.location.state.detail;
 
     return (
         <Fragment>
@@ -119,7 +119,7 @@ const UserSinglePost = (props) => {
                         </Col>
                         <Col md={4}>
                             <div className='my-4'>
-                                <ImageComponent item={_id} />
+                                <ImageComponent item={_id}  digitalImageLink={digitalImageLink}  />
                             </div>
                             <div>
                                 <Card>

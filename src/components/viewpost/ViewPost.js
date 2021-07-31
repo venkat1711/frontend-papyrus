@@ -175,8 +175,10 @@ export default class ViewPost extends Component {
                 </a>
                
               </div>
-              <div>
+              <div>{this.state.data.digitalImageLink}
+                {(this.state.data.digitalImageLink === ''||this.state.data.digitalImageLink === undefined)&&
               <button  type="button" class="btn btn-primary"  download onClick={e => download(e)}>download</button>
+                }
               </div>
               
 
@@ -193,16 +195,6 @@ export default class ViewPost extends Component {
                       <th>Papyrus ID</th>
                       <td>{this.state.data.papyrusId === undefined ? '' : this.state.data.papyrusId}</td>
                     </tr>
-                    <tr>
-                      <th>Material</th>
-                      <td>{this.state.data.material === undefined ? '' : this.state.data.material}</td>
-                    </tr>
-                    
-                    <tr>
-                      <th>Date</th>
-                      <td>{this.state.dataeditiondata === undefined ? '' : this.state.dataeditiondata}</td>
-                    </tr>
-                   
                     <tr>
                       <th>Digital Images</th>
                       <td><a href={this.state.data.digitalImageLink === undefined ? '' : this.state.data.digitalImageLink} 

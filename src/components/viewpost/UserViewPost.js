@@ -120,7 +120,7 @@ const UserSinglePost = (props) => {
                         </Col>
                         <Col md={4}>
                             <div className='my-4'>
-                                <ImageComponent item={_id} />
+                                <ImageComponent item={_id}  digitalImageLink={digitalImageLink} />
                             </div>
                             <div>
                                 <Card>
