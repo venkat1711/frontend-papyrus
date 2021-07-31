@@ -16,4 +16,7 @@ table td, .table th {
     width: 30% !important;
 }
 
-.pointer {cursor: pointer;}
+.photo {
+    height: 30%;
+    width: 100%;
+  }

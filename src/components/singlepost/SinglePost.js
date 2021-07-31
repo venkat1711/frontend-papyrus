@@ -6,6 +6,7 @@ import { registerSinglePost } from '../../api/AllPosts/allposts';
 import ImageComponent from '../dashboard/imageComponent/image';
 import { toast } from 'react-toastify';
 import './css/SinglePost.css';
+import { API } from '../../config';
 
 const SinglePost = (props) => {
 
@@ -38,7 +39,7 @@ const SinglePost = (props) => {
     possibleReconstructions,
     intercolumnspace,
     linespercolumn,numberoffolios,innerMargin,externalMargin,
-    lateralMargin,number,PN } = props.location.state.detail;
+    lateralMargin,number,PN,work,digitalImageLink } = props.location.state.detail;
 
   const registerPost = () => {
     return isAuthenticated() ? (
@@ -269,7 +270,13 @@ const SinglePost = (props) => {
             </Col>
             <Col md={4} >
               <div className='my-4'>
-                <ImageComponent item={_id} />
+                {/* <ImageComponent item={_id} /> */}
+                <Fragment >
+      <Card.Img variant="top" src={`${API}/allposts/photo/${_id}`} onClick={() => props.history.push({
+                        pathname: '/viewpost/'+_id
+                        
+                      })} className='my-2' className="pointer" width='100%' height='300px' style={{ objectFit: 'cover' }} />
+    </Fragment>
               </div>
               <div>
                 <Card>
@@ -306,7 +313,7 @@ const SinglePost = (props) => {
                       </tr>
                       <tr>
                         <th>Author</th>
-                        <td>{author === undefined ? '' : author}</td>
+                        <td>{author === undefined ? '' : author+" "+work}</td>
                       </tr>
                      
                       <tr>
@@ -341,6 +348,10 @@ const SinglePost = (props) => {
                         <th>No of fragments</th>
                         <td>{fragment === undefined ? '' : `${fragment}fr;`}</td>
                       </tr>
+                      <tr>
+                      <th>Image Source</th>
+                      <td>{digitalImageLink === undefined ? '' : digitalImageLink}</td>
+                    </tr>
                       <tr>
                       <th>Material</th>
                       <td>{material === undefined ? '' : material}</td>

@@ -72,7 +72,7 @@ const UserDashboard = (props) => {
                                             </Fragment>
                                         ) : (
                                                 <Fragment>
-                                                    <ImageComponent item={c.allpostId._id} />
+                                                    <ImageComponent item={c.allpostId._id} digitalImageLink={c.allpostId.digitalImageLink} />
                                                     <Card.Body>
                                                         <Card.Title id='heading-wrapper'>{c.allpostId.papyrusId === undefined ? '' : c.allpostId.papyrusId}</Card.Title>
                                                         <Card.Text>
