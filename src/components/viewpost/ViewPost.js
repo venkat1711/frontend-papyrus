@@ -205,8 +205,8 @@ export default class ViewPost extends Component {
                    
                     <tr>
                       <th>Digital Images</th>
-                      <td><a href={this.state.data.PN === undefined ? '' : this.state.data.PN} 
-                      target="_blank">{this.state.data.PN === undefined ? '' : this.state.data.PN}</a></td>
+                      <td><a href={this.state.data.digitalImageLink === undefined ? '' : this.state.data.digitalImageLink} 
+                      target="_blank">{this.state.data.digitalImageLink === undefined ? '' : this.state.data.digitalImageLink}</a></td>
                     </tr>
                   </tbody>
                 </Table>

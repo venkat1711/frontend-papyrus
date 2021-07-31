@@ -57,6 +57,7 @@ const UpdatePost = (props) => {
         number:'',
         PN:'',
         work:'',
+        digitalImageLink:'',
         formData: "",
     });
     const { user, token } = isAuthenticated();
@@ -88,7 +89,7 @@ const UpdatePost = (props) => {
         possibleReconstructions, 
         intercolumnspace,
     linespercolumn,numberoffolios,innerMargin,externalMargin,
-    lateralMargin,number,PN,work,formData } = post;
+    lateralMargin,number,PN,work,digitalImageLink,formData } = post;
 
     useEffect(() => {
         try {
@@ -361,6 +362,16 @@ const UpdatePost = (props) => {
                                         <FragmentInputs handleChange={handleChange} fragment={fragment} />
                                     </Col>
                                 </FormGroup>
+                                <FormGroup as={Row}>
+                                        <Form.Label htmlFor="input9" column xs={4} sm={4}>
+                                            DigitalImageLink :
+                                </Form.Label>
+                                        <Col xs={8} sm={7} >
+                                        <Form.Control type="text"
+                                                name='digitalImageLink' value={digitalImageLink}
+                                                onChange={handleChange('digitalImageLink')} placeholder="DigitalImageLink" />
+                                        </Col>
+                                    </FormGroup>
                                 <FormGroup as={Row}>
                                     <Form.Label htmlFor="input8" column xs={4} sm={4}>
                                         Material :
