@@ -364,12 +364,13 @@ const UpdatePost = (props) => {
                                 </FormGroup>
                                 <FormGroup as={Row}>
                                         <Form.Label htmlFor="input9" column xs={4} sm={4}>
-                                            DigitalImageLink :
+                                            Image Source :
                                 </Form.Label>
                                         <Col xs={8} sm={7} >
                                         <Form.Control type="text"
                                                 name='digitalImageLink' value={digitalImageLink}
-                                                onChange={handleChange('digitalImageLink')} placeholder="DigitalImageLink" />
+                                                onChange={handleChange('digitalImageLink')} 
+                                                placeholder="Image Source" />
                                         </Col>
                                     </FormGroup>
                                 <FormGroup as={Row}>
