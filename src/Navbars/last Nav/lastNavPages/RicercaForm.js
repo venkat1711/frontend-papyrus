@@ -14,6 +14,7 @@ import DataZoneLt from './inputComponents/DataLt';
 import Footer from '../../../components/Footer/Footer';
 import { toast } from 'react-toastify';
 import '../css/Ricerca.css';
+import InventoryNumberInput from './inputComponents/InventoryNumber';
 
 
 const RicercaForm = ({ history }) => {
@@ -26,13 +27,15 @@ const RicercaForm = ({ history }) => {
         dataGt: 0,
         dataLt: 0,
         acquisition: "",
-        TM:0
+        TM:0,
+        inventoryNumber:""
     });
 
     const handleChange = (e) => {
         setValues({ ...values, [e.target.name]: e.target.value });
     };
 
+ 
     const formSubmit = (e) => {
         e.preventDefault();
         filterPosts(values).then((data) => {
@@ -62,6 +65,7 @@ const RicercaForm = ({ history }) => {
                                 </Form.Label>
                                 <Col xs={7} sm={7} >
                                     <InventoryInputs handleChange={handleChange} />
+                                    <InventoryNumberInput handleChange={handleChange} />
                                 </Col>
                                 <Col xs={1} sm={1} >
                                     <>

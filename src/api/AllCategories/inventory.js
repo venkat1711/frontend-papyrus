@@ -30,6 +30,16 @@ export const getInventory = () => {
         })
         .catch((err) => console.log(err));
 };
+export const getInventoryNumber = () => {
+    return fetch(`${API}/inventoryNumber`, {
+        method: 'GET',
+    })
+        .then((response) => {
+            // console.log('name : ', response);
+            return response.json();
+        })
+        .catch((err) => console.log(err));
+};
 
 // delete inventory
 export const deleteInventory = (inventoryId, userId, token) => {
