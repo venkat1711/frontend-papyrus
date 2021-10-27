@@ -40,7 +40,7 @@ const Provenance = ({ handleChange }) => {
                 // value={inventory}
                 required
             >
-                <option>Inventory Number</option>
+                <option>InventoryNumber</option>
                 {values.InventoryNumber &&
                     values.InventoryNumber.map((c, i) => (
                         <option key={i} value={c}>
