@@ -18,10 +18,10 @@ const Dateinfo = () => {
                 <p>15 to 10 BC</p>
                 <p>BC 199 to 100</p>
                 <p>15 till 10 BC</p>
-                <p>beginning of 2nd BC   </p>
-                <p> half of 2nd BC       </p>
-                <p> first half of 2nd BC    </p>
-                <p>second half of 2nd BC    </p>
+                <p>beginning of 2nd BC</p>
+                <p> half of 2nd BC</p>
+                <p> first half of 2nd BC</p>
+                <p>second half of 2nd BC</p>
                 <p>end of 2nd BC</p>
                 <p>beginning of 1st c. AD
                     half of 1st c. AD
