@@ -45,7 +45,7 @@ const AllPosts = (props) => {
               </Card>
             ))}
           </div>
-        ) : 'DATA HAS NOT BEEN CREATED' 'PLEASE SELECT THE CORRECT DATA'}
+        ) : 'DATA HAS NOT BEEN CREATED'}
       </Row>
     </Container>
   )
